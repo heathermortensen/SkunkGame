@@ -17,7 +17,7 @@ Skunk is a dice rolling game where each player can roll a pair of dice as many t
 
 * If a player rolls snake eyes, they lose all accumulated points across all previous rounds.
 
-<img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Scorecard.png?raw=true" alt="Skunk Scorecard" style="zoom: 50%;" />
+<img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Scorecard.png?raw=true" alt="Skunk Scorecard" style="zoom: 33%;" />
 
 The scorecard above summarized the game that appears in the following image.
 
