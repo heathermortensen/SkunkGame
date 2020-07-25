@@ -29,16 +29,16 @@ The scorecard above summarizes the game below. Heather wins the game because she
 
 Skunk game with 3 players where player 3 wins by having the most points at the end of round 5.
 
-![image-20200725115334810](C:\Users\Bob Ross\Desktop\workspace\SkunkGame\images\use_case_1.png)
+![image-20200725115334810](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/use_case_1.png)
 
 
 
 The data model can be thought of as a 2-dimensional array, or matrix with dimensions [number of players] x 5.
 
-![2D matrix](C:\Users\Bob Ross\Desktop\workspace\SkunkGame\images\use_case_2.png)
+![2D matrix](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/use_case_2.png)
 
 ### Data Model
 
 While we might visualize the data inside of a 2D array, or matrix, the data is actually stored inside of the following two arrays.
 
-![Data model](C:\Users\Bob Ross\Desktop\workspace\SkunkGame\images\use_case_3.png)
+![Data model](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/use_case_3.png)
