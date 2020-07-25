@@ -23,44 +23,24 @@ public class Player
 		this.player_index = p.player_index;
 	}
 	
+//////////////////////////////Getters//////////////////////////////
+	
 	public String get_player_name()
 	{
 		
 	return this.player_name;
 	}
 	
-	public void set_points_this_turn(int points)
-	{
-		this.points_this_turn = points;
-	}
-	
-	
-	public void set_points_this_round(int points)
-	{
-		set_points_this_turn(points);
-		this.points_this_round_of_play = (this.points_this_round_of_play + points);
-	}
-	
-	/////////////////////////////////////////////////Added new////////////////////////////
-	public int set_points_this_round(int points, int round, Player p)
-	{		
-		p.pointsPerRound[round] = points;
-		
-	return p.pointsPerRound[round];
-	}
-	
-	public int get_points_this_round()
+	public int get_player_index()
 	{
 		
-	return this.points_this_round_of_play;
+	return this.player_index;
 	}
-	///////////////////////////////Added this///////////////
-	public int get_points_this_round(int round, Player p)
+	
+	public int get_points_this_round_of_play(int round)
 	{
-		int points = 0;
-		points = p.pointsPerRound[round];
 		
-	return points;
+	return this.pointsPerRound[round];
 	}
 	
 	public int get_points_this_turn()
@@ -69,5 +49,49 @@ public class Player
 	return this.points_this_turn;
 	}
 	
+	public int get_total_points()
+	{
+		
+	return this.points_this_turn;
+	}
+	
+	public int rolls_this_turn()
+	{
+		
+	return this.rolls_this_turn;
+	}
+	
+	//////////////////////////////Setters//////////////////////////////
+	
+	
+	
+	public void set_points_this_turn(int points)
+	{
+		this.points_this_turn =  points;
+	}
+	
+	public void set_points_this_round(int points)
+	{
+		this.points_this_turn = this.points_this_turn + points;
+	}
+
+	public void set_points_this_round(int points, int round, Player p)
+	{		
+		this.pointsPerRound[round] = this.pointsPerRound[round] + points;
+		
+	}
+	
+	public SkunkController set_array(SkunkController controller, int player_number, SkunkUI UI, int roll_of_dice, int roundOfPlay)
+	{
+		int roll = this.get_points_this_turn();
+		controller.list.set(player_number, this).set_points_this_round(roll_of_dice, roundOfPlay, this);
+		
+		System.out.println("FIRST ROLL () : pointsPerRound[roundOfPlay]=" + controller.list.get(player_number).get_points_this_turn());
+		
+		UI.printRollPoints(this.rolls_this_turn, roll_of_dice);
+		
+	return controller;
+	}
+
 
 }

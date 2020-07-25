@@ -21,15 +21,15 @@ public class PlayerTest {
 	public void testSet_points_this_round() {
 		Player player = new Player("yaz",1);
 		player.set_points_this_round(10);
-		assertEquals(10, player.get_points_this_round());
+		assertEquals(10, player.get_points_this_round_of_play(1));
 		
 	}
 
 	@Test
 	public void testGet_points_this_round() {
 		Player player = new Player("yaz",1);
-		player.get_points_this_round();
-		assertEquals(0, player.get_points_this_round());
+		player.get_points_this_turn();
+		assertEquals(0, player.get_points_this_turn());
 	}
 
 }

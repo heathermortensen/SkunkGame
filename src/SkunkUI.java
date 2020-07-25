@@ -12,6 +12,7 @@ public class SkunkUI
 		System.out.println("/\\__/ /   <| |_| | | | |   <");
 		System.out.println("\\____/|_|\\_/\\__,_|_| |_|_|\\_\\");
 	}
+	
 	public int getNumPlayersFromUser()
 	{
 		
@@ -103,77 +104,7 @@ public class SkunkUI
 		
 		
 	}
-	//////////////////////////////////////////////////Just added//////////////////////////////
-//	public void set_points_per_round_per_player(int roundOfPlay, ArrayList<Player> list, int numberOfPlayers)
-//	{
-//		for (Player p: list) 
-//		{
-//								
-//				list.get(p.player_index); 
-//				//System.out.println("\nPLAYER: " + p.get_player_name() );
-//				//System.out.print("Round  = ");
-//			
-//	        for(int k = 1; k < (roundOfPlay + 1); k++)
-//	        {
-//				
-//				//System.out.print("" + k + "   ");
-//				
-//	        }
-//	        
-//	        	System.out.print("\nPoints = " );
-//	        
-//	        int pointOutput = 0;
-//	        
-//	        for(int j = 1; j < (roundOfPlay + 1); j++)
-//	        {
-//	        	//System.out.print("RoundOfPlay = " + roundOfPlay);
-//	        	System.out.print( p.get_points_this_round(roundOfPlay, p) + "   ");
-//	        	//int get_points_this_round(int round, Player p)
-//	        	//pointOutput = p.get_points_this_round(roundOfPlay, p);
-//	        	//System.out.print( pointOutput + "   ");
-//	        	//System.out.print("" + pointOutput + "   ");
-//	        
-//	        }
-//	        
-//	        System.out.println("\n------------------------------------" );
-//			}
-//		//}
-//	
-//	}
-//	public void print_points_per_round_per_player(int roundOfPlay, Player p, int numberOfPlayers)
-//	{
-//		
-//								
-//				//list.get(p.player_index); 
-//				System.out.println("\nPLAYER: " + p.get_player_name() );
-//				System.out.print("Round  = ");
-//			
-//	        for(int k = 1; k < (roundOfPlay + 1); k++)
-//	        {
-//				
-//				System.out.print("" + k + "   ");
-//				
-//	        }
-//	        
-//	        	System.out.print("\nPoints = " );
-//	        
-//	        int pointOutput = 0;
-//	        
-//	        for(int j = 1; j < (roundOfPlay + 1); j++)
-//	        {
-//	        	//System.out.print("RoundOfPlay = " + roundOfPlay);
-//	        	System.out.print( p.get_points_this_round(roundOfPlay, p) + "   ");
-//	        	//int get_points_this_round(int round, Player p)
-//	        	//pointOutput = p.get_points_this_round(roundOfPlay, p);
-//	        	//System.out.print( pointOutput + "   ");
-//	        	//System.out.print("" + pointOutput + "   ");
-//	        
-//	        }
-//	        
-//	        System.out.println("\n------------------------------------" );
-//		
-//		
-//	}
+
 	
 	//Count the number of dashes here and make it consistent when the player's name is added.
 	public void printStartPlayerTurn(String nameOfPlayer, int numberOfPlayer, int roundOfPlay) 

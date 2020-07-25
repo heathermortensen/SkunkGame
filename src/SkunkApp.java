@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class SkunkApp 
 {
              
-	int NumberofPlayer;
+	int numberofPlayers;
 	
 	int roundOfPlay = 1;
 	
@@ -16,17 +16,22 @@ public class SkunkApp
 	
      public int getNumberofPlayer()
      {
-    	 return NumberofPlayer; 
+    	 return numberofPlayers; 
      }
+ 
      
      public void setNumberOfPlayers(int num)
      {
-    	 
-    	this.NumberofPlayer = num;
+   	 
+    	this.numberofPlayers = num;
+    	
      }
 
 	public void playGame() 
 	{
+		
+		//This controller class is responsible for setting data inside the player array to keep player score after each round of play.
+		//Each player object holds an array called int[] pointsPerRound = new int[5];
 		
 		SkunkUI UI = new SkunkUI();
 
@@ -59,79 +64,89 @@ public class SkunkApp
 			
 	//player_number == number
 			
-	for (int i = 0; i < number; i++)
+		
+			controller = playerTurn(UI, controller, players);
+			
+			
+	}
+
+
+	public SkunkController playerTurn(SkunkUI UI, SkunkController controller, ArrayList<Player> players) 
 	{
-			//players turn starts here....
-				
-			Player p = new Player(players.get(i));
-			
-			players.get(p.player_index); // player_number i = 0
-			
-			//set active player 
-			this.active_player = p;
-			
-			//this active player_number = 1 for output
-			player_number = p.player_index + 1; 
-			
-			Dice myDice = new Dice();
+		int number = players.size();
 		
-			UI.printStartPlayerTurn(p.get_player_name(), player_number, roundOfPlay);
-			
-			int roll_of_dice = 0;
-			
-			//Player takes the first roll of the dice in his turn.		
-			roll_of_dice = myDice.roll_dice(p);
-			
-			//set total points
-			p.set_points_this_turn(roll_of_dice);
-			
-			//set total points into array. This is the value of the first roll.
-			int get_points_first_roll = 0;
-			get_points_first_roll = p.get_points_this_turn();
-			pointsPerRound[roundOfPlay-1] = p.set_points_this_round(get_points_first_roll, roundOfPlay, p);
-			
-			UI.printRollPoints(p.rolls_this_turn, roll_of_dice);
-					
-			
 		
+		//players turn starts here....
+		for (int m = 0; m < (number); m++)
+		{
+		System.out.println("player index =" + m);
+			
+		Player p = new Player(players.get(m));
+		
+		players.get(p.player_index); // player_number i = 0
+		
+		//set active player 
+		this.active_player = p;
+		
+		//this active player_number = 1 for output
+		player_number = p.player_index + 1; 
+		
+		Dice myDice = new Dice();
+
+		UI.printStartPlayerTurn(p.get_player_name(), player_number, roundOfPlay);
+		
+		int roll_of_dice;
+		
+			
+			//Player's first roll
+			 controller = playersFirstRoll(UI, controller, p, myDice);
+			
+			//Player takes all following rolls...
 			String again = "Y";
 			
-			while ((again.equals("Y") || again.equals("y")) && myDice.getSkunkEndsTurn() == false)
-			{
-				//Does the player want to roll again???
-				
-				again = UI.promptAndReturn("\nWant to roll again? 'Y' = Yes 'N' = No");
-				
-				if ((again.equals("Y") || again.equals("y")))
+				while ((again.equals("Y") || again.equals("y")) && myDice.getSkunkEndsTurn() == false)
 				{
+					//Does the player want to roll again???
 					
-					// Roll again
+					again = UI.promptAndReturn("\nWant to roll again? 'Y' = Yes 'N' = No");
 					
-					//increase the number of rolls inside patron
-					p.rolls_this_turn ++;
-	
-					roll_of_dice = myDice.roll_dice(p);
-					
-					//works perfect
-					
-					int get_points = p.get_points_this_turn();
-					
-					p.set_points_this_turn((p.get_points_this_turn() + roll_of_dice));
-					
-					
-					// Add the points to the previous point total.
-					
-					// Set points in the array
-					pointsPerRound[roundOfPlay] = p.set_points_this_round(p.get_points_this_turn(), roundOfPlay, p);
-					
-					//p.set_points_this_round(p.get_points_this_turn(), roundOfPlay, p);
-					
-					//change to ui method...
-					UI.printRollPoints(p.rolls_this_turn, roll_of_dice);
+					if ((again.equals("Y") || again.equals("y")))
+					{
 						
-					UI.print("Total points this turn = " + p.get_points_this_turn());
-					
-				}//end if
+						// Roll again
+						
+						//increase the number of rolls inside patron
+						p.rolls_this_turn ++;
+		
+						roll_of_dice = myDice.roll_dice(p);
+						
+					//works perfect
+						
+						//1. set total points
+						System.out.println("m = " + m + " p.get_points_this_round_of_play(m) = " + p.get_points_this_round_of_play(m));
+						int get_points = p.get_points_this_round_of_play(m);
+						
+						p.set_points_this_turn((p.get_points_this_turn() + roll_of_dice));
+						
+						// Add the points to the previous point total.
+						
+						// Set points in the array
+						//2. set array to total points. This is the value of the 2nd,3rd,4th.. roll.
+						
+						int points_nth_roll = 0;  //change here!!!!!!!!!!!!!!!!
+						points_nth_roll = p.get_points_this_round_of_play(m);
+						controller.list.set(player_number, p).set_points_this_round(points_nth_roll, roundOfPlay, p);
+						
+						//p.set_points_this_round(p.get_points_this_turn(), roundOfPlay, p);
+						System.out.println("\\\\\\\\\\\\\\\\[roundOfPlay] = " + roundOfPlay);
+						System.out.println("\\\\\\\\\\\\\\\\pointsPerRound[roundOfPlay]=" + pointsPerRound[roundOfPlay]);
+						
+						//
+						UI.printRollPoints(p.rolls_this_turn, roll_of_dice);
+							
+						UI.print("Total points this turn = " + p.get_points_this_turn());
+						
+					}//end if
 				
 			}//end while
 					
@@ -139,55 +154,86 @@ public class SkunkApp
 			
 			//print scorecard here..........
 					
-			
-			UI.printRoundOfPlay(roundOfPlay);
-			
-			for (int l = 0; l < players.size(); l++) 
-			{
-				Player q = players.get(l);
-				players.get(q.player_index); // player_number i = 0
-				
-				//set active player 
-				this.active_player = p;
-				
-				//this active player_number = 1 for output
-				player_number = p.player_index + 1;
-											
-						 
-				System.out.println("\nPLAYER: " + p.get_player_name() );
-				//System.out.print("Round  = ");
-						
-//				        for(int k = 1; k < (roundOfPlay + 1); k++)
-//				        {			
-//							System.out.print("" + k + "   ");
-//							
-//				        }
-				        
-						UI.print("\nPoints = " );
-				        
-				        int pointOutput = 0;
-				        
-				        for(int j = 1; j < (roundOfPlay + 1); j++)
-				        {
-				        	
-				        	UI.print(p.get_points_this_round(roundOfPlay, p) + "   ");
-				        	
-				        }
-				        
-				        UI.printLine();
-				        
-				        l++;
-			}
+			printScorecard(UI, players);
 			
 			pauseGame();
-						
-		
-		}//end for loop - each player has had 1 turn.
-	
-	
-	
-	roundOfPlay++;
 			
+			roundOfPlay++;
+			
+	}//end for loop - each player has had 1 turn.
+	
+		
+	return controller;
+	}
+
+
+	public void printScorecard(SkunkUI UI, ArrayList<Player> players) {
+		
+		UI.printRoundOfPlay( roundOfPlay);
+		
+		for (int l = 0; l < players.size(); l++) 
+		{
+			Player q = players.get(l);
+			players.get(q.player_index); // player_number i = 0
+			
+			//set active player 
+			this.active_player = q;
+			
+			//this active player_number = 1 for output
+			player_number = q.player_index + 1;
+										
+					 
+			System.out.println("\nPLAYER: " + q.get_player_name() );
+			//System.out.print("Round  = ");
+					
+			        for(int k = 1; k < (roundOfPlay + 1); k++)
+			        {			
+						System.out.print("" + k + "   ");
+						
+			        }
+			        
+					UI.print("\nPoints = " );
+			        
+			        int pointOutput = 0;
+			        
+			        for(int j = 1; j < (roundOfPlay + 1); j++)
+			        {
+			        	UI.print("\nq.get_points_this_round()" + q.get_points_this_round_of_play(j));
+			        	UI.print("\nq.get_points_this_turn()" + q.get_points_this_turn());
+			        	UI.print("\nq.get_points_this_round(j)" + q.get_points_this_round_of_play(j));
+			        	UI.print("(roundOfPlay)= " + roundOfPlay);
+			        	UI.print("q.get_points_this_round(roundOfPlay)= " + q.get_points_this_round_of_play(roundOfPlay) + "   ");
+			        	UI.print("q.get_points_this_round(roundOfPlay)= " + q.get_points_this_round_of_play(roundOfPlay) + "   ");
+			        }
+			        
+			        UI.printLine();
+			        
+			        
+		}
+	}
+
+
+	public SkunkController playersFirstRoll(SkunkUI UI, SkunkController controller, Player p, Dice myDice) 
+	{
+		int roll_of_dice = 0;
+		
+		//Player takes the first roll of the dice in his turn.		
+		roll_of_dice = myDice.roll_dice(p);
+		
+		//set total points
+		p.set_points_this_turn(roll_of_dice);
+		
+		//set array to total points. This is the value of the first roll.
+		int get_points_first_roll = 0;
+		get_points_first_roll = p.get_points_this_turn();
+		controller.list.set(player_number, p).set_points_this_round(roll_of_dice, roundOfPlay, p);
+		controller = p.set_array(controller,player_number,UI,roll_of_dice,roundOfPlay);
+		
+		System.out.println("FIRST ROLL () : pointsPerRound[roundOfPlay]= round of play=" + roundOfPlay + " "+ controller.list.get(player_number).get_points_this_turn());
+		
+		UI.printRollPoints(p.rolls_this_turn, roll_of_dice);
+	
+	return controller;
 	}
 
 	public void pauseGame() 
