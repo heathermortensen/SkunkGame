@@ -7,15 +7,15 @@ public class SkunkAppTest {
 	@Test
 	public void testGetNumberofPlayer() {
 		SkunkApp sk = new SkunkApp();
-		sk.getNumberofPlayer();
-		assertEquals(0, sk.getNumberofPlayer());
+		sk.getNumberOfPlayers();
+		assertEquals(0, sk.getNumberOfPlayers());
 	}
 
 	@Test
 	public void testSetNumberOfPlayers() {
 		SkunkApp sk = new SkunkApp();
 		sk.setNumberOfPlayers(2);
-		assertEquals(2, sk.getNumberofPlayer());
+		assertEquals(2, sk.getNumberOfPlayers());
 	}
 
 	@Test

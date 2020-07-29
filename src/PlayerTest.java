@@ -18,10 +18,10 @@ public class PlayerTest {
 	}
 
 	@Test
-	public void testSet_points_this_round() {
+	public void testSet_points_this_turn() {
 		Player player = new Player("yaz",1);
-		player.set_points_this_round(10);
-		assertEquals(10, player.get_points_this_round_of_play(1));
+		player.set_points_this_turn(10,0);
+		assertEquals(10, player.get_points_this_turn());
 		
 	}
 

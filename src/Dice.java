@@ -17,7 +17,7 @@ public class Dice
 		return this.skunkEndsTurn;
 	}
 	
-	public int roll_dice(Player p)
+	public int roll_dice(Player p, int round)
 	{
 		int sum = 0;
 		
@@ -39,7 +39,8 @@ public class Dice
 		if (skunkCount > 0)
 		{
 			sum = 0;
-			p.set_points_this_turn(0);
+			p.set_points_this_turn(0, round);
+			p.pointsPerRound[round] =  0;
 			this.skunkEndsTurn = true;
 		}
 		
@@ -48,10 +49,11 @@ public class Dice
 		if (skunkCount == 2)
 		{
 			sum = 0;
-			p.set_points_this_turn(0);
-			
+			p.set_points_this_turn(0, round);
+			p.pointsPerRound[round] =  0;
 			//void all points accumulated by player
-			p.set_points_this_round(0);
+			//p.set_points_this_round(0);
+			p.set_points_ALL_rounds_to_zero();
 			
 			this.skunkEndsTurn = true;
 		}
