@@ -6,11 +6,14 @@ public class SkunkUI
 {
 	public void welcomeToSkunk()
 	{
-		
-
-		System.out.println("Bug #1. Scorecard outputs the players most recent roll of the dice, not the total points from ALL rolls of the dice. FIXED 7/29");
-		System.out.println("Bug #2. Inconsistent and incorrect player & player turn & roundOfPlay indexing. Make a couple changes there. FIXED 7/29");
+		System.out.println("TO DO:  ");
 		System.out.println("Make the pause between players shorter and create a pause after selecting roll dice. This makes it less confusing.");
+		System.out.println("Add loop for 5 rounds of game. But, not yet, it will take forever to run the progam.");
+		System.out.println("Move Any remaining output into SkunkUI.java class.");
+		System.out.println("Do I have time to add some tests?");
+		System.out.println("Add MVC");
+		System.out.println("Clean up Github README.md");
+		System.out.println("");
 		System.out.println(" _______                _");
 		System.out.println("/  ___| |              | |");  
 		System.out.println("\\ `--.| | ___   _ _ __ | | __");

@@ -210,16 +210,18 @@ public class Player
 		p2.setDataInTotalPointsArray(roundOfPlay, p.pointsPerRound[roundOfPlay-1]);
 		controller.list.set(index, p2);
 		
-
+		//Move this to class SkunkUI.java
 		//Output
-		
-
+		System.out.println("------------------------------------------------------------------------------------------");
+		System.out.println("                    QUICK    SCORECARD      ");
+		System.out.println("------------------------------------------------------------------------------------------");
 		for (Player q : controller.list) 
 		{   
-		    System.out.print(""+q.get_player_name() + ", index " + q.get_player_index() + " ");
+		    System.out.print("\n"+q.get_player_name() + ", index " + q.get_player_index() + " ");
 		    System.out.println("get.pointsPerRound[roundOfPlay] ="+ controller.list.get(q.get_player_index()).pointsPerRound[roundOfPlay]);
-		    System.out.println("");
+		    System.out.println("-----------------------------------------------------------------------------");
 		}
+		System.out.println("\n");
 		
 		UI.printRollPoints(p.rolls_this_turn, roll_of_dice);
 	
