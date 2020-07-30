@@ -26,15 +26,18 @@ public class Die
 		return roll;
 		
 	}
+	//Put this inside the UISkunk class......
 	public String showDie(int value)
 	{
 		String diePicture = "";
 		
-		diePicture = diePicture.concat("    --------\n");
-		diePicture = diePicture.concat("    |      |\n");
-		diePicture = diePicture.concat("    |  "+ value+"   |\n");	
-		diePicture = diePicture.concat("    |      |\n");
-		diePicture = diePicture.concat("    --------\n");
+		diePicture = diePicture.concat("     ______\n");
+		diePicture = diePicture.concat("    |      |\\\n");
+		diePicture = diePicture.concat("    |  "+ value+"   | |\n");	
+		diePicture = diePicture.concat("    |______| |\n");
+		diePicture = diePicture.concat("     \\______\\|\n");
+	
+		//diePicture = diePicture.concat("   Move this into UI class  \n");
 		
 		return diePicture;
 	}

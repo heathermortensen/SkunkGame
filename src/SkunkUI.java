@@ -1,3 +1,4 @@
+//import java.util.ArrayList;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,8 +8,9 @@ public class SkunkUI
 	{
 		
 
-		System.out.println("Bug #1. Scorecard outputs the players most recent roll of the dice, not the total points from ALL rolls of the dice.");
-		System.out.println("Bug #2. Inconsistent and incorrect indexing/roundOfPlay. Make a couple changes there.");
+		System.out.println("Bug #1. Scorecard outputs the players most recent roll of the dice, not the total points from ALL rolls of the dice. FIXED 7/29");
+		System.out.println("Bug #2. Inconsistent and incorrect player & player turn & roundOfPlay indexing. Make a couple changes there. FIXED 7/29");
+		System.out.println("Make the pause between players shorter and create a pause after selecting roll dice. This makes it less confusing.");
 		System.out.println(" _______                _");
 		System.out.println("/  ___| |              | |");  
 		System.out.println("\\ `--.| | ___   _ _ __ | | __");
@@ -79,6 +81,55 @@ public class SkunkUI
 		System.out.print(output);
 	}
 	
+	public void printSkunk(int i)
+	{
+		if (i == 1)
+		{
+			System.out.println("   ___o              ____________");
+			System.out.println("  / 0 |            _/      _____/");
+			System.out.println(" (__   \\_______  /    _____/       ZERO");
+			System.out.println("    |          \\/ _____/         POINTS");
+			System.out.println("    |  _______  /                THIS");
+			System.out.println("    / /      / /               ROUND");
+			System.out.println("   JJJ      JJJ");
+			System.out.println("-----------------------------------------");
+			System.out.println("  Pew, You rolled a SKUNK!!!!    			 ");
+			System.out.println("-----------------------------------------");
+		}
+		else
+		{
+			System.out.println("   ___o             ____________        ___o             ____________");
+			System.out.println("  / 0 |           _/      _____//      / 0 |           _/      _____//");
+			System.out.println(" (__   \\_______  //    _____//       (__   \\_______  //    _____// ");
+			System.out.println("    |          \\/ _____//               |          \\/ _____//");
+			System.out.println("    |  ______   \\//         YOU         |  ______   \\//");
+			System.out.println("    // //    // //         LOOSE        // //    // //");
+			System.out.println("    JJJ      JJJ         ALL POINTS!!!  JJJ      JJJ");
+			System.out.println("--------------------------------------------------------------------");
+			System.out.println("   Peewww, You rolled two SKUNKS!!!!  	 ");
+			System.out.println("--------------------------------------------------------------------");
+			
+		}
+	}
+	
+//	public void debugPrintRoundOfPlay(SkunkApp app, ArrayList<Player> q)
+//	{
+//		System.out.println("SkunkApp app roundOfPlay instance variable = " + app.roundOfPlay);
+//		
+//		for (Player p : q)
+//		{
+//			System.out.println("//////////////////////////////////////////////////////////////////////////////////");
+//			System.out.println("\nPlayer " + p.get_player_name() + "  Player index = " + p.get_player_index() + "Player Number = ?");
+//			System.out.println("-------------------------Rolls, Turn-----------------------------------------------------");
+//			System.out.println("Player rolls this turn" + p.rolls_this_turn + "  p.points_this_turn = " + p.cummulative_points_this_turn);
+//			System.out.println("----------------------------Round--------------------------------------------------");
+//			System.out.println("p.get_points_this_round_of_play(app.roundOfPlay) = " + p.get_points_this_round_of_play(app.roundOfPlay));
+//			System.out.println("----------------------------total points--------------------------------------------------");
+//			System.out.println("Total Game points p.get_total_game_points() = " + p.get_total_game_points() );
+//			System.out.println("//////////////////////////////////////////////////////////////////////////////////");
+//		}
+//	}
+	
 	public void printPointsThisRound(String output)
 	{
 		System.out.println(output);
@@ -119,16 +170,7 @@ public class SkunkUI
 		printRoundOfPlay(app.roundOfPlay);
 		
 		for (Player q: players)
-		{
-//			Player q = players.get(l);
-//			players.get(q.player_index); // player_number i = 0
-//			
-//			//set active player 
-//			app.active_player = q;
-//			
-//			//this active player_number = 1 for output
-//			player_number = q.player_index + 1;
-										
+		{										
 					 
 			System.out.println("\nPLAYER: " + q.get_player_name() );
 			System.out.print("Round  = ");
@@ -194,10 +236,10 @@ public class SkunkUI
 		System.out.println("\n------------------------------------------------" );
 
 	}
-	public void printPlayersAndPointsWithinTheList(SkunkController controller) 
+	public void debugPrintPlayersAndPointsWithinTheList(SkunkController controller) 
 	{
 		System.out.println("");
-		System.out.println("1.) print all players created inside list ----------------");
+		System.out.println("-----------    TEMPORARY SCORECARD     ----------------");
 		controller.printAllPlayersAndPointsInsideList(1);
 		System.out.println("-------------------------------------------------------");
 		System.out.println("");

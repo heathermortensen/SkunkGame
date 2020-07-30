@@ -6,7 +6,7 @@ import java.util.List;
 public class SkunkController
 {
 	int numPlayers = 0;
-	//The kitty holds the total number of accumulated points by the player?? If so, this should be located inside player class.
+	//What is the kitty?
 	int kitty = 0;
 	
 	Boolean wantsToQuit;
@@ -39,37 +39,10 @@ public class SkunkController
 	return list;
 	}
 	
-//	public ArrayList<Player> updatePlayers(int numberOfPlayers, )
-//	{
-//		
-//		
-//		for (int i = 0; i < numberOfPlayers; i++)
-//		{
-//			ArrayList<Player> updatedList = new ArrayList<Player>();
-//			
-//			//Copy all Player data
-//			/*
-//	* String player_name = "";
-//	int player_index;
-//	int points_this_round_of_play = 0;
-//	int points_this_turn = 0;
-//	int total_points = 0;
-//	int rolls_this_turn = 1;
-//	
-//	Dice dice = new Dice();
-//	/////////////////////////////////////Added new/////////////////////
-//	int[] pointsPerRound = new int[5];
-//			 */
-//			
-//			name = ui.getPlayerNamesFromUser(numberOfPlayers, (i+1));
-//			
-//			Player p = new Player(name, i);
-//			
-//			this.list.add(p);			
-//		}
-//		
-//	return list;
-//	}
+    public void incrementRoundOfPlay(SkunkApp app)
+    {
+   	 	app.roundOfPlay++;
+    }
 	
 	public int get_points_Per_Round(int playerNum, int round)
 	{
@@ -89,8 +62,6 @@ public class SkunkController
 			    System.out.print(""+q.get_player_name() + " " + q.get_player_index() + " ");
 			    System.out.println("list.get(index).pointsPerRound[roundOfPlay] ="+ this.list.get(q.get_player_index()).pointsPerRound[round]);
 			}
-		   
-		
 
 	}
 	

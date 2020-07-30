@@ -17,7 +17,7 @@ public class Dice
 		return this.skunkEndsTurn;
 	}
 	
-	public int roll_dice(Player p, int round)
+	public int roll_dice(Player p, int round, SkunkUI ui)
 	{
 		int sum = 0;
 		
@@ -36,12 +36,16 @@ public class Dice
 		
 		//player rolls at least one 1.
 		
-		if (skunkCount > 0)
+		if (skunkCount == 1)
 		{
 			sum = 0;
 			p.set_points_this_turn(0, round);
+			p.cummulative_points_this_turn =0;
 			p.pointsPerRound[round] =  0;
+			ui.printSkunk(1);
 			this.skunkEndsTurn = true;
+			
+		    
 		}
 		
 		//player rolls two 1's.
@@ -49,11 +53,12 @@ public class Dice
 		if (skunkCount == 2)
 		{
 			sum = 0;
+			p.cummulative_points_this_turn =0;
 			p.set_points_this_turn(0, round);
 			p.pointsPerRound[round] =  0;
 			//void all points accumulated by player
-			//p.set_points_this_round(0);
 			p.set_points_ALL_rounds_to_zero();
+			ui.printSkunk(2);
 			
 			this.skunkEndsTurn = true;
 		}

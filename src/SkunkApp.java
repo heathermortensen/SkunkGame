@@ -4,30 +4,29 @@ public class SkunkApp
 {
              
 	int numberOfPlayers;
-	
 	int roundOfPlay = 0;
 	
-	
-	//private int numPlayers;
 	private Player active_player;
 	private int player_number = 0;
               
-	//int[] pointsPerRound = new int[5];
-	
 
-    
      public int getNumberOfPlayers()
      {
     	 return numberOfPlayers; 
      }
- 
      
+     public int getRoundOfPlay()
+     {
+    	 return roundOfPlay; 
+     }
+ 
      public void setNumberOfPlayers(int num)
      {
    	 
     	this.numberOfPlayers = num;
     	
      }
+     
      public void setRoundOfPlay(int m)
      {
    	 
@@ -52,7 +51,7 @@ public class SkunkApp
 		
 		setNumberOfPlayers(number);
 
-		//Player names are stored in players.
+		//Player names are now stored in the list of players.
 	
 		controller.list = controller.createPlayers(getNumberOfPlayers());
 		
@@ -65,94 +64,78 @@ public class SkunkApp
 //for (int i = 0; i < number; i++)	
 //{
 	//check point totals
+		
+		//System.out.println(" Prior to anybody taking any turns  ");
+		//UI.printRoundOfPlay(this, controller.list);
 	
 //}
 		
 		
-	//Player #1 takes a turn.
+	//Players take a first turn.
 			
-	//player_number == number
-		
-			//Test Output - test list #1 before playerTurns()
-			UI.printPlayersAndPointsWithinTheList(controller);
+			//Increment this.roundOfPlay prior to each player taking a turn.
+			this.roundOfPlay++;
+			controller.list = playerTurns(this, UI, controller, controller.list, roundOfPlay);
 			
-		
-			controller.list = playerTurns(UI, controller, controller.list, roundOfPlay);
+			//System.out.println(" After each player takes 1 turn, just prior to scorecard printing.  ");
+			//UI.debugPrintRoundOfPlay(this, controller.list);
 			
 			//Test Output - test list #2 after playerTurns()
-			UI.print("\noutput AFTER PlayerTurns, just before the scorecard executes....");
-			UI.printPlayersAndPointsWithinTheList(controller);
+			//UI.print("\noutput AFTER PlayerTurns, just before the scorecard executes....");
+			UI.debugPrintPlayersAndPointsWithinTheList(controller);
 			
 			//Make a new, updated ArrayList from controller.list	 
 			
-//			ArrayList<Player> playersHadOneTurnEach = new ArrayList<Player>();
 //			playersHadOneTurnEach = controller.list;
 
 			//print scorecard here..........
 			
 			
-//			System.out.println("");
-//			System.out.println("this is what?" + this.getClass());
-//			System.out.println("");
-					
-			UI.printScorecard(controller.list, this, controller);
+			//UI.printScorecard(controller.list, this, controller);
 //}	
 			
 }
 
 
-	public ArrayList<Player> playerTurns(SkunkUI UI, SkunkController controller, ArrayList<Player> players, int roundOfPlay) 
+	public ArrayList<Player> playerTurns(SkunkApp app, SkunkUI UI, SkunkController controller, ArrayList<Player> players, int roundOfPlay) 
 	{
-		int number = this.getNumberOfPlayers();
+		int numberOfPlayers = this.getNumberOfPlayers();
 		
+		//Each players turn starts here. m is the player's index inside the arrayList.
+		//This loop runs once for each player so they can each take a turn 
+		//m is the index of the player  inside the list.
+		//Player number = player index + 1
 		
-		//players turn starts here....m = the player index
-		for (int m = 0; m < number; m++)
+		for (int m = 0; m < numberOfPlayers; m++)
 		{
-			System.out.println("/////////////Start of turn, m = " + m);
 			
 			Player p = new Player(players.get(m)); //players.get(0) players.get(1) on 2nd turn
 		
 			players.get(p.player_index); 
-			System.out.println("player index =" + p.player_index);
 		
-			//set active player 
 			this.active_player = p;
 		
-			//this active player_number = 1 for output
 			player_number = p.player_index + 1; 
 		
 			Dice myDice = new Dice();
+			
+			///////////////////  Player rolls for the first time in their turn  //////////////////////
 
-			UI.printStartPlayerTurn(p.get_player_name(), player_number, m);  
+			UI.printStartPlayerTurn(p.get_player_name(), player_number, getRoundOfPlay());  
 		
+			//dont need to send in roundOfPlay here. It can be obtained from other parameters - app.roundOfPlay
+			controller = p.playersFirstRoll(app, UI, controller, p, myDice, roundOfPlay);  
 			
-			////////////////////////////////here///////////////////////////////
+			//////////////////    Player makes all additional rolls in this turn    //////////////////
 			
-			//Player's first roll
-			 p.playersFirstRoll(UI, controller, p, myDice, roundOfPlay);
-			 
-			 ///////////working perfectly thru here.///////////////////////////
-			
-			//Player takes all following rolls...
-			p.playersAllAdditionalRolls(UI, controller, m, p, myDice, roundOfPlay);
+			controller = p.playersAllAdditionalRolls(UI, controller, m, p, myDice, roundOfPlay);
 					
 			
-	}//end for (int m = 0; m < number; m++) - each player has had one turn
-		
-		
+		}//end for (int m = 0; m < number; m++) - each player has had one turn
 		
 	
-		
 	return players;
 	}
-
-
-
-
-
-
-
 	
     public Boolean rollAgain()
     {
