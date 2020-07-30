@@ -95,9 +95,9 @@ public class SkunkUI
 			System.out.println("    |  _______  /                THIS");
 			System.out.println("    / /      / /               ROUND");
 			System.out.println("   JJJ      JJJ");
-			System.out.println("-----------------------------------------");
-			System.out.println("  Pew, You rolled a SKUNK!!!!    			 ");
-			System.out.println("-----------------------------------------");
+			System.out.println("--------------------------------------------------------------");
+			System.out.println("  Pew, You rolled a SKUNK!!!!    Your turn is over.			 ");
+			System.out.println("--------------------------------------------------------------");
 		}
 		else
 		{
@@ -106,10 +106,10 @@ public class SkunkUI
 			System.out.println(" (__   \\_______  //    _____//       (__   \\_______  //    _____// ");
 			System.out.println("    |          \\/ _____//               |          \\/ _____//");
 			System.out.println("    |  ______   \\//         YOU         |  ______   \\//");
-			System.out.println("    // //    // //         LOOSE        // //    // //");
-			System.out.println("    JJJ      JJJ         ALL POINTS!!!  JJJ      JJJ");
+			System.out.println("    // //    // //         LOOSE ALL     // //    // //");
+			System.out.println("    JJJ      JJJ         GAME POINTS!!!  JJJ      JJJ");
 			System.out.println("--------------------------------------------------------------------");
-			System.out.println("   Peewww, You rolled two SKUNKS!!!!  	 ");
+			System.out.println("   Peewww, You rolled two SKUNKS!!!!  	 Your turn is over.");
 			System.out.println("--------------------------------------------------------------------");
 			
 		}
