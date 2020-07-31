@@ -39,6 +39,6 @@ The data model might be imagined as a matrix with dimensions [number of players]
 
 ### Data Model
 
-While we might visualize the data inside matrix, but the actual implementation uses 2 arrays. An Array list of Player objects contains all the players in the game. Each player object contains an array containing the points for each of 5 turns (or rounds). 
+While we might visualize the data as a matrix, the actual implementation uses 2 arrays. An Array list of Player objects contains all the players in the game. Each player object contains an array containing the points for each of 5 turns (or rounds). 
 
 ![Data model](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/use_case_3.png)
