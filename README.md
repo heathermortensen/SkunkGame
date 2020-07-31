@@ -23,6 +23,12 @@ Skunk is a dice rolling game where each player can roll a pair of dice as many t
 
 ### Sample Program Output
 
+This shows the program output for 1 round of play in a game with 2 players. Each player rolls the dice twice.
+
+Heather is the first player. She rolls 9 points and chooses to roll a second time. In her second roll, she rolls a 1 (aka skunk) and looses all the points in her turn.
+
+Garth is the second player. He initially rolls 10 points. In his second roll, he adds another 7 points. Garth has a total of 17 points and is leading the game.
+
 ![](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/ScreenshotsOf1Turn.png)
 
 ### Use Case
