@@ -17,15 +17,11 @@ Skunk is a dice rolling game where each player can roll a pair of dice as many t
 
 * If a player rolls snake eyes, they lose all accumulated points in the game.
 
-
-
-
-
 <img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Skunkdocumentation.png?raw=true" alt="Use case" style="zoom: 50%;" />
 
  This scorecard above summarizes the game above. Heather wins the game because she was first to reach 100 points.<img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Scorecard.png?raw=true" alt="Skunk Scorecard" style="zoom: 150%;" />
 
-###Program Output###
+### Program Output
 
 ![](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/ScreenshotsOf1Turn.png)
 
