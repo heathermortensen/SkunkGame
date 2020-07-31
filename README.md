@@ -19,26 +19,26 @@ Skunk is a dice rolling game where each player can roll a pair of dice as many t
 
 <img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Skunkdocumentation.png?raw=true" alt="Use case" style="zoom: 50%;" />
 
- This scorecard above summarizes the game above. Heather wins the game because she was first to reach 100 points.<img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Scorecard.png?raw=true" alt="Skunk Scorecard" style="zoom: 150%;" />
+ This scorecard shown here summarizes the example game above. Heather wins because she was first to reach 100 points.<img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Scorecard.png?raw=true" alt="Skunk Scorecard" style="zoom: 150%;" />
 
-### Program Output
+### Sample Program Output
 
 ![](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/ScreenshotsOf1Turn.png)
 
 ### Use Case
 
-Skunk game with 3 players where player 3 wins by having the most points at the end of round 5.
+Skunk game with 3 players where player 3 wins by having the most points at the end of turn 5.
 
 ![image-20200725115334810](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/use_case_1.png)
 
 
 
-The data model can be thought of as a 2-dimensional array, or matrix with dimensions [number of players] x 5.
+The data model might be imagined as a matrix with dimensions [number of players] x 5. We sum the points accumulated in every turn to give the total points for each player.
 
 ![2D matrix](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/use_case_2.png)
 
 ### Data Model
 
-While we might visualize the data inside of a 2D array, or matrix, the data is actually stored inside of the following two arrays.
+While we might visualize the data inside matrix, but the actual implementation uses 2 arrays. An Array list of Player objects contains all the players in the game. Each player object contains an array containing the points for each of 5 turns (or rounds). 
 
 ![Data model](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/use_case_3.png)
