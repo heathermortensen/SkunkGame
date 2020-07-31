@@ -1,5 +1,5 @@
 # Overview
-This repo houses a repeated dice rolling game called Skunk. It is coded in Java.
+This repo houses a repeated dice rolling game called Skunk. It is programmed in Java.
 
 ## [Skunk aka Pig](https://en.wikipedia.org/wiki/Pig_(dice_game))
 
