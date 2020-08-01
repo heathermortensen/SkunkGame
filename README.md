@@ -19,7 +19,11 @@ Skunk is a dice rolling game where each player can roll a pair of dice as many t
 
 <img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Skunkdocumentation.png?raw=true" alt="Use case" style="zoom: 50%;" />
 
- This scorecard shown here summarizes the example game above. Heather wins because she was first to reach 100 points.<img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Scorecard.png?raw=true" alt="Skunk Scorecard" style="zoom: 150%;" />
+ This scorecard shown here summarizes the example game above. Heather wins because she was first to reach 100 points.  
+
+A scorecard shows the cumulative points across all of a players turns rolling the dice.
+
+<img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Scorecard.png?raw=true" alt="Skunk Scorecard" style="zoom: 200%;" />
 
 ### Sample Program Output
 
