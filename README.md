@@ -39,12 +39,25 @@ Skunk game with 3 players where player 3 wins by having the most points at the e
 
 
 
-The data model might be imagined as a matrix with dimensions [number of players] x 5. We sum the points accumulated in every turn to give the total points for each player.
+The data model might be imagined as a matrix with dimensions [number of players] x 5. We sum the points accumulated in every turn to give the total points for each player. The Scorecard outputs each players point totals.
 
 ![2D matrix](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/use_case_2.png)
+
+
 
 ### Data Model
 
 While we might visualize the data as a matrix, the actual implementation uses 2 arrays. An Array list of Player objects contains all the players in the game. Each player object contains an array containing the points for each of 5 turns (or rounds). 
 
 ![Data model](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/use_case_3.png)
+
+
+
+### Future Project Improvements
+
+- [ ] Make the pause between players shorter and create a pause after selecting "Yes" to option to roll the dice. 
+- [ ] Add loop around playerTurns for 5 rounds of game. But, not yet. Otherwise, it will take forever to run the program.
+- [ ] Move Any remaining output into SkunkUI.java class. There's some scorecard outputs and a Dice.java picture.
+- [ ] Do I have time to add some tests?
+- [ ] Add MVC
+- [x] Clean up GitHub README.md
