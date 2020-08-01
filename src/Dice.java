@@ -26,6 +26,8 @@ public class Dice
 		
 		sum = roll_1 + roll_2;
 		
+		shortPauseGame();
+		
 		System.out.println("" + die_1.showDie(roll_1));
 		
 		System.out.println("");
@@ -82,5 +84,24 @@ public class Dice
 		
 		return skunkCount;
 		
+	}
+	
+	public void shortPauseGame() 
+	{
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void longPauseGame() 
+	{
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

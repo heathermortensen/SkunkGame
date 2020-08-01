@@ -61,9 +61,10 @@ While we might visualize the data as a matrix, the actual implementation uses 2 
 
 ### Future Project Improvements
 
-- [ ] Make the pause between players shorter and create a pause after selecting "Yes" to option to roll the dice. 
+- [x] Make the pause between players shorter and create a pause after selecting "Yes" to option to roll the dice. 
 - [ ] Add loop around playerTurns for 5 rounds of game. But, not yet. Otherwise, it will take forever to run the program.
 - [ ] Move Any remaining output into SkunkUI.java class. There's some scorecard outputs and a Dice.java picture.
+- [x] Make Scorecard output at the end of each round of turns.
 - [ ] Do I have time to add some tests?
 - [ ] Add MVC
 - [x] Clean up GitHub README.md

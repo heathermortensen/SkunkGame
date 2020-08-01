@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.List;
+
 
 
 //THIS FILE RUNS THE CODE!!!!!!!!!!!!!!!!!!!!!!!
@@ -49,21 +49,21 @@ public class SkunkController
 		
 		 Player p = this.list.get(playerNum);
 		 int points = p.get_points_this_round_of_play(round);
-		 System.out.println("ARRAY POINTS: SkunkController.get_points_Per_Round = p.points_this_round_of_play = points" + points);
+		// System.out.println("ARRAY POINTS: SkunkController.get_points_Per_Round = p.points_this_round_of_play = points" + points);
 			
 	return points;
 	}
 	
-	public void printAllPlayersAndPointsInsideList(int round)
-	{
-		 
-			for (Player q : this.list) 
-			{   
-			    System.out.print(""+q.get_player_name() + " " + q.get_player_index() + " ");
-			    System.out.println("list.get(index).pointsPerRound[roundOfPlay] ="+ this.list.get(q.get_player_index()).pointsPerRound[round]);
-			}
-
-	}
+//	public void printAllPlayersAndPointsInsideList(int round)
+//	{
+//		 
+//			for (Player q : this.list) 
+//			{   
+//			    System.out.print(""+q.get_player_name() + " " + q.get_player_index() + " ");
+//			    System.out.println("list.get(index).pointsPerRound[roundOfPlay] ="+ this.list.get(q.get_player_index()).pointsPerRound[round]);
+//			}
+//
+//	}
 	
 	public static void main(String[] args) 
 	{

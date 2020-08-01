@@ -77,21 +77,15 @@ public class SkunkApp
 			this.roundOfPlay++;
 			controller.list = playerTurns(this, UI, controller, controller.list, roundOfPlay);
 			
-			//System.out.println(" After each player takes 1 turn, just prior to scorecard printing.  ");
-			//UI.debugPrintRoundOfPlay(this, controller.list);
 			
 			//Test Output - test list #2 after playerTurns()
-			//UI.print("\noutput AFTER PlayerTurns, just before the scorecard executes....");
-			UI.debugPrintPlayersAndPointsWithinTheList(controller);
+			//UI.debugPrintPlayersAndPointsWithinTheList(controller);
 			
-			//Make a new, updated ArrayList from controller.list	 
-			
-//			playersHadOneTurnEach = controller.list;
 
 			//print scorecard here..........
 			
-			
-			//UI.printScorecard(controller.list, this, controller);
+			System.out.println("");
+			UI.printScorecard(controller.list, this, controller);
 //}	
 			
 }

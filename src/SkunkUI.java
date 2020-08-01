@@ -6,14 +6,7 @@ public class SkunkUI
 {
 	public void welcomeToSkunk()
 	{
-		System.out.println("TO DO:  ");
-		System.out.println("Make the pause between players shorter and create a pause after selecting roll dice. This makes it less confusing.");
-		System.out.println("Add loop for 5 rounds of game. But, not yet, it will take forever to run the progam.");
-		System.out.println("Move Any remaining output into SkunkUI.java class.");
-		System.out.println("Do I have time to add some tests?");
-		System.out.println("Add MVC");
-		System.out.println("Clean up Github README.md");
-		System.out.println("");
+		
 		System.out.println(" _______                _");
 		System.out.println("/  ___| |              | |");  
 		System.out.println("\\ `--.| | ___   _ _ __ | | __");
@@ -186,32 +179,27 @@ public class SkunkUI
 			        
 					this.print("\nPoints = " );
 			        
-			        int pointOutput = 0;
 			        
 			        for(int j = 0; j < (app.roundOfPlay); j++)
 			        {
-			        	Player p = new Player(players.get(j));
-			   
-			        	this.print(" " + p.pointsPerRound[0/*k*/]);
-			        	//pointOutput = pointOutput + q.get_points_this_round_of_play(j);
-			        	
+			        	//System.out.print("" + q.pointsPerRound[j]);
+			        	System.out.print("" + players.get(q.get_player_index()).pointsPerRound[j+1]);
 			        }
-			        this.print("\n Total points = " + pointOutput);
+			        
+			        this.print("\n Total points = " + q.get_total_game_points());
 			        
 			        this.printLine();
 		}
-			  
-		System.out.print("\n");
-		System.out.print("\nBAD OUTPUT HERE>>>>  IT does not sum all the rolls. It breaks for #rolls > 1.");
-		System.out.print("\nIt outputs the most recent roll, not the total of ALL rolls.");
+		
 			    
-			        System.out.print("\n");
-			        System.out.println("\n Output from method SkunkController.printAllPlayersAndPointsInsideList(int round)");
-			        for (Player r : players) 
-					{   
-					    System.out.print("\n"+r.get_player_name() + " " + r.get_player_index() + " ");
-					    System.out.println(" players.get(index).pointsPerRound[roundOfPlay] ="+ players.get(r.get_player_index()).pointsPerRound[app.roundOfPlay]);
-					}
+//			        System.out.print("\n");
+//			        System.out.println("\n Output from method SkunkController.printAllPlayersAndPointsInsideList(int round)");
+			       
+//			        for (Player r : players) 
+//					{   
+//					    System.out.print("\n"+r.get_player_name() + " " + r.get_player_index() + " ");
+//					    System.out.println(" players.get(index).pointsPerRound[roundOfPlay] ="+ players.get(r.get_player_index()).pointsPerRound[app.roundOfPlay]);
+//					}
 				   
 			        
 			        
@@ -243,9 +231,22 @@ public class SkunkUI
 	{
 		System.out.println("");
 		System.out.println("-----------    TEMPORARY SCORECARD     ----------------");
-		controller.printAllPlayersAndPointsInsideList(1);
+		
+		printAllPlayersAndPointsInsideList(1, controller.list);
+		
 		System.out.println("-------------------------------------------------------");
 		System.out.println("");
+	}
+	
+	public void printAllPlayersAndPointsInsideList(int round, ArrayList<Player> list)
+	{
+		 
+			for (Player q : list) 
+			{   
+			    System.out.print(""+q.get_player_name() + " " + q.get_player_index() + " ");
+			    System.out.println("list.get(index).pointsPerRound[roundOfPlay] ="+ list.get(q.get_player_index()).pointsPerRound[round]);
+			}
+
 	}
 	
 }
