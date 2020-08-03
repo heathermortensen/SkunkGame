@@ -8,13 +8,10 @@ Skunk is a dice rolling game where each player can roll a pair of dice as many t
 ### How To Play Skunk
 
 * The # of players must be > 1.
-
 * The player with the most points after 5 rounds wins.
-
-* Alternatively, a player can win by being the first to reach 100 points.
-
+* Alternatively, a player can win by being the first to reach 100 points. 
+* If players tie, the first player looses by default.
 * If a player rolls a 1, they lose all points in that round.
-
 * If a player rolls snake eyes, they lose all accumulated points in the game.
 
 <img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Skunkdocumentation.png?raw=true" alt="Use case" style="zoom: 50%;" />
@@ -62,9 +59,23 @@ While we might visualize the data as a matrix, the actual implementation uses 2 
 ### Future Project Improvements
 
 - [x] Make the pause between players shorter and create a pause after selecting "Yes" to option to roll the dice. 
-- [ ] Add loop around playerTurns for 5 rounds of game. But, not yet. Otherwise, it will take forever to run the program.
-- [ ] Move Any remaining output into SkunkUI.java class. There's some scorecard outputs and a Dice.java picture.
+
+- [x] Add loop around playerTurns for 5 rounds of game. But, not yet. Otherwise, it will take forever to run the program.
+
+- [ ] Move Any remaining output into SkunkUI.java class. There's some scorecard outputs in the Player class and a Dice.java picture.
+
 - [x] Make Scorecard output at the end of each round of turns.
+
 - [ ] Do I have time to add some tests?
+
 - [ ] Add MVC
+
 - [x] Clean up GitHub README.md
+
+- [ ] Update the program output inside the readme.
+
+- [ ] Make class diagram
+
+- [ ] 		System.out.println("fix scorecard output.");
+  		System.out.println("Double skunk isn't clearing all rounds of points.");
+  		System.out.println("winner doesn't work. That function is messy.");

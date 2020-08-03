@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 
 
-
-//THIS FILE RUNS THE CODE!!!!!!!!!!!!!!!!!!!!!!!
 public class SkunkController
 {
 	int numPlayers = 0;
@@ -21,8 +19,7 @@ public class SkunkController
 	SkunkUI ui = new SkunkUI();
 	
 	public ArrayList<Player> createPlayers(int numberOfPlayers)
-	{
-		//SkunkUI ui = 
+	{ 
 		String name;
 		
 		for (int i = 0; i < numberOfPlayers; i++)
@@ -54,16 +51,6 @@ public class SkunkController
 	return points;
 	}
 	
-//	public void printAllPlayersAndPointsInsideList(int round)
-//	{
-//		 
-//			for (Player q : this.list) 
-//			{   
-//			    System.out.print(""+q.get_player_name() + " " + q.get_player_index() + " ");
-//			    System.out.println("list.get(index).pointsPerRound[roundOfPlay] ="+ this.list.get(q.get_player_index()).pointsPerRound[round]);
-//			}
-//
-//	}
 	
 	public static void main(String[] args) 
 	{

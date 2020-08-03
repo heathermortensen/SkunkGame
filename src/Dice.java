@@ -20,6 +20,7 @@ public class Dice
 	public int roll_dice(Player p, int round, SkunkUI ui)
 	{
 		int sum = 0;
+		int index = round -1;
 		
 		int roll_1 = die_1.roll();
 		int roll_2 = die_2.roll();
@@ -42,8 +43,10 @@ public class Dice
 		{
 			sum = 0;
 			p.set_points_this_turn(0, round);
+			//p.set_points_this_turn(0, index);
 			p.cummulative_points_this_turn =0;
-			p.pointsPerRound[round] =  0;
+			//p.pointsPerRound[round] =  0;
+			p.pointsPerRound[index] =  0;
 			ui.printSkunk(1);
 			this.skunkEndsTurn = true;
 			
@@ -57,9 +60,12 @@ public class Dice
 			sum = 0;
 			p.cummulative_points_this_turn =0;
 			p.set_points_this_turn(0, round);
-			p.pointsPerRound[round] =  0;
+			//p.set_points_this_turn(0, index);
+			//p.pointsPerRound[round] =  0;
+			p.pointsPerRound[index] =  0;
+			////////////////////////////////////////////////////This might be failing. Barley ever executes.
 			//void all points accumulated by player
-			p.set_points_ALL_rounds_to_zero();
+			p = p.set_points_ALL_rounds_to_zero();
 			ui.printSkunk(2);
 			
 			this.skunkEndsTurn = true;

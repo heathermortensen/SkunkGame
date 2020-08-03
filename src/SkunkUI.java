@@ -6,7 +6,9 @@ public class SkunkUI
 {
 	public void welcomeToSkunk()
 	{
-		
+		System.out.println("Update rules: incase of tie, default winner is the player with largest index in array.");
+		System.out.println("fix scorecard output.");
+		System.out.println("");
 		System.out.println(" _______                _");
 		System.out.println("/  ___| |              | |");  
 		System.out.println("\\ `--.| | ___   _ _ __ | | __");
@@ -183,7 +185,7 @@ public class SkunkUI
 			        for(int j = 0; j < (app.roundOfPlay); j++)
 			        {
 			        	//System.out.print("" + q.pointsPerRound[j]);
-			        	System.out.print("" + players.get(q.get_player_index()).pointsPerRound[j+1]);
+			        	System.out.print("" + players.get(q.get_player_index()).pointsPerRound[j] + "   ");
 			        }
 			        
 			        this.print("\n Total points = " + q.get_total_game_points());
@@ -192,16 +194,9 @@ public class SkunkUI
 		}
 		
 			    
-//			        System.out.print("\n");
-//			        System.out.println("\n Output from method SkunkController.printAllPlayersAndPointsInsideList(int round)");
-			       
-//			        for (Player r : players) 
-//					{   
-//					    System.out.print("\n"+r.get_player_name() + " " + r.get_player_index() + " ");
-//					    System.out.println(" players.get(index).pointsPerRound[roundOfPlay] ="+ players.get(r.get_player_index()).pointsPerRound[app.roundOfPlay]);
-//					}
-				   
-			        
+		System.out.println("///////////////////////////////////////////////////");
+		System.out.println("///////////////////////////////////////////////////");
+		System.out.println("///////////////////////////////////////////////////");			        
 			        
 		
 	}
@@ -213,12 +208,13 @@ public class SkunkUI
 		System.out.println("\n----------------------------------------------------");
 		System.out.println("-------- Player #" + (numberOfPlayer) + ".) " + nameOfPlayer + ", turn #" + roundOfPlay + " --------------");
 		System.out.println("----------------------------------------------------");
+		System.out.println("\n  rolling dice...");
 	}
 	
 	public void printRollPoints(int roll_number, int value_of_dice) 
 	{
 
-		System.out.println("Roll #" + roll_number + ", points = " + value_of_dice );
+		System.out.println(" " + "Roll #" + roll_number + ", points = " + value_of_dice );
 		
 	}
 	
@@ -247,6 +243,13 @@ public class SkunkUI
 			    System.out.println("list.get(index).pointsPerRound[roundOfPlay] ="+ list.get(q.get_player_index()).pointsPerRound[round]);
 			}
 
+	}
+
+	public void printCurrentlyWinning(String winning) 
+	{
+		// Print the name of whomever is currently winning at the end of each round.
+		System.out.println("\n" + winning + " is currently winning.");
+		
 	}
 	
 }

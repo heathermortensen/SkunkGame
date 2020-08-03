@@ -8,6 +8,8 @@ public class SkunkApp
 	
 	private Player active_player;
 	private int player_number = 0;
+	
+	private Player winner;
               
 
      public int getNumberOfPlayers()
@@ -59,34 +61,77 @@ public class SkunkApp
 		for (Player e: controller.list)
 			e.initializeArray();
 		
+		//Play 5 rounds of Skunk
+		for (int round = 1; round < 6; round++)
+		{
 		
-//Here, check if any players (in the arraylist) have points greater than 100.	
-//for (int i = 0; i < number; i++)	
-//{
-	//check point totals
+				//Here, check if any players (in the arraylist) have points greater than 100.
 		
-		//System.out.println(" Prior to anybody taking any turns  ");
-		//UI.printRoundOfPlay(this, controller.list);
-	
-//}
+				ArrayList<Player> hasMoreThan99Points = new ArrayList<Player>();
+				
+				
+				
+				for (int i = 0; i < number; i++)	
+				{
+					//check point totals
+						for (Player f: controller.list)
+						{
+							if (f.get_total_game_points() > 99)
+							{
+								hasMoreThan99Points.add(f);
+							}
+						}
+					
+				}
+				
+				if (hasMoreThan99Points.size() == 0)
+				{
+					//There is no winner, yet. Keep playing rounds of the game.
+				}
+				else if (hasMoreThan99Points.size() == 1)
+				{
+					//player f is the winner
+					System.out.println("\n" + hasMoreThan99Points.get(0).get_player_name() + " wins the game!!!");
+				}
+				else // (hasMoreThan99Points.size() > 1)
+				{
+					//See which player has more points and declare that player the winner
+					winner = new Player(hasMaxPoints(controller.list));
+					System.out.println("\n" +winner.get_player_name() + " wins the game!!!");
+				}
+				
+				
+			//Players take a first turn.
+					
+					//Increment this.roundOfPlay prior to each player taking a turn.
+					this.roundOfPlay++;
+					controller.list = playerTurns(this, UI, controller, controller.list, roundOfPlay);
+					
+					
+					//Test Output - test list #2 after playerTurns()
+					//UI.debugPrintPlayersAndPointsWithinTheList(controller);
+					
 		
+					//print scorecard here..........
+					
+					System.out.println("");
+					UI.printScorecard(controller.list, this, controller);
+					
+				//Determine who is winning after this round of play
+					
+					//Does anyone have 100 or more points??? --> They win.
+					
+					//Who currently has the most points??? They are currently winning.
+					String winning = currentlyWinning(controller);
+					UI.printCurrentlyWinning(winning);
+				
+		} //end of for loop that establishes 5 rounds of the game	
 		
-	//Players take a first turn.
-			
-			//Increment this.roundOfPlay prior to each player taking a turn.
-			this.roundOfPlay++;
-			controller.list = playerTurns(this, UI, controller, controller.list, roundOfPlay);
-			
-			
-			//Test Output - test list #2 after playerTurns()
-			//UI.debugPrintPlayersAndPointsWithinTheList(controller);
-			
-
-			//print scorecard here..........
-			
-			System.out.println("");
-			UI.printScorecard(controller.list, this, controller);
-//}	
+		//who is the winner after 5 rounds? Who has the most points?
+		
+		Player winner = new Player(hasMaxPoints(controller.list));
+		System.out.println("winner is " + winner.get_player_name());
+		
 			
 }
 
@@ -137,4 +182,108 @@ public class SkunkApp
    	 	
    	 	return b;
     }
+    
+    public String currentlyWinning(SkunkController controller)
+    {
+    	Player p = null;
+    	String name = "";
+    	
+    	//which player has the most points?
+    	for (Player q: controller.list)
+		{
+			//p = 0, 1, 2, 3
+    		Boolean [] winning = new Boolean[this.numberOfPlayers];
+			
+			for (int m = 0; m < this.numberOfPlayers; m++)
+			{
+				p = controller.list.get(m);
+				
+				if (q.get_player_index() != p.get_player_index())
+				{
+					if (q.get_total_game_points() > p.get_total_game_points())
+					{
+						winning[p.get_player_index()] = true;
+						//System.out.println("q.get_total_game_points() = "+q.get_total_game_points() + " > " + p.get_total_game_points()+" =p.get_total_game_points() ");
+					}
+					else
+					{
+						winning[p.get_player_index()] = false;
+					}
+				
+				}
+				else
+				{
+					winning[q.get_player_index()] = true;
+				}
+			}//end for loop
+			
+			//System.out.println("\n");
+			
+			int countWins = 0;
+			
+			for (int i = 0; i < this.numberOfPlayers; i++)
+			{	
+				//System.out.println("winning[" + i + "]" + winning[i]);
+				//System.out.println("countWins i=" + i + "=" + countWins + " for " + q.get_player_name());
+				
+				if (winning[i].equals(true))
+				{
+					countWins++;
+				}
+	
+				if (countWins == this.numberOfPlayers)
+				{
+					
+				name = q.get_player_name();
+				return name;
+				}
+				else
+				{
+				
+				name = "No one";	
+				}
+			}
+		}
+	return name; 	
+    }
+
+    public Player hasMaxPoints(ArrayList<Player> list)
+    {
+    	
+    	int playerIndexWithMaxPoints = 75;
+    	
+    	int sizeOfList = list.size();
+    	
+    	//is i.getTotalPoints larger than any other player?
+    	
+    	for (int i = 0; i < sizeOfList; i++)
+		{
+			//p = 0, 1, 2, 3, ...
+    		Player test = list.get(i);
+
+				for (Player e : list)
+				{
+					if (test.get_total_game_points() > e.get_total_game_points())
+					{
+						//Player hasMaxPoints = new Player(test);
+						playerIndexWithMaxPoints = i;
+						System.out.println("Player index "+i+ " has max points");
+						
+					}
+					else if (test.get_total_game_points() == e.get_total_game_points())
+					{
+						//default to the player with the last index in the list as the winner.
+						
+						//Player hasMaxPoints = new Player(e);
+						playerIndexWithMaxPoints = e.get_player_index();
+						System.out.println("Player index "+ e.get_player_index() + " has max points");
+					}
+				}
+				
+		}//end for loop
+
+	return list.get(playerIndexWithMaxPoints); 	
+    }
+    
 }
+
