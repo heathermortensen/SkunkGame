@@ -17,7 +17,7 @@ public class Dice
 		return this.skunkEndsTurn;
 	}
 	
-	public int roll_dice(Player p, int round, SkunkUI ui)
+	public int roll_dice(Player p, int round, SkunkUI ui, SkunkController controller)
 	{
 		int sum = 0;
 		int index = round -1;
@@ -58,16 +58,20 @@ public class Dice
 		if (skunkCount == 2)
 		{
 			sum = 0;
-			p.cummulative_points_this_turn =0;
-			p.set_points_this_turn(0, round);
-			p.pointsPerRound[index] =  0;
+			controller.list.get(p.get_player_index()).cummulative_points_this_turn = 0;
+			//p.cummulative_points_this_turn = 0;
+			controller.list.get(p.get_player_index()).set_points_this_turn(0, round);
+			//p.set_points_this_turn(0, round);
+			//p.pointsPerRound[index] =  0;
+			controller.list.get(p.get_player_index()).pointsPerRound[index] = 0;
 			
 			//TEST THIS!!!//////////////////////////////////////////////This might be failing. Barley ever executes.
 			//void all points accumulated by player
 		
 			while (index >= 0)
 			{
-				p.pointsPerRound[index] =  0;
+				controller.list.get(p.get_player_index()).pointsPerRound[index] = 0;
+				//p.pointsPerRound[index] =  0;
 				System.out.println("index = " + index + " & " + p.player_name + "'s points for round " + (index+1) + " = " + p.pointsPerRound[index]);
 				index--;
 			}

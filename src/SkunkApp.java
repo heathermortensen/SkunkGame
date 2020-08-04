@@ -66,50 +66,10 @@ public class SkunkApp
 		{
 		
 				//Here, check if any players (in the arraylist) have points greater than 100.
+			//Does anyone have 100 or more points??? --> They win.
+			//REFRACTOR THIS. PULL OUT INTO its own method.
 		
-				ArrayList<Player> hasMoreThan99Points = new ArrayList<Player>();
-				
-				
-				
-				for (int i = 0; i < number; i++)	
-				{
-					//check point totals
-						for (Player f: controller.list)
-						{
-							if (f.get_total_game_points() > 99)
-							{
-								hasMoreThan99Points.add(f);
-							}
-						}
-					
-				}
-				
-				if (hasMoreThan99Points.size() == 0)
-				{
-					//There is no winner, yet. Keep playing rounds of the game.
-				}
-				else if (hasMoreThan99Points.size() == 1)
-				{
-					//player f is the winner
-					//System.out.println("\n" + hasMoreThan99Points.get(0).get_player_name() + " wins the game!!!");
-					UI.printCurrentlyWinning(hasMoreThan99Points.get(0).get_player_name(), round, hasMoreThan99Points.get(0) );
-					
-					//Winner declared. Call function to exit the game HERE///////////////////////
-					
-				}
-				else // (hasMoreThan99Points.size() > 1)
-				{
-					//Check who has more points and declare that player the winner
-					String winner = currentlyWinning(controller);
-					int indexOfWinnerInsideList = 0;
-					indexOfWinnerInsideList = indexOfPlayerCurrentlyWinningTheGame(controller);
-							
-					UI.printCurrentlyWinning(winner, round, hasMoreThan99Points.get(indexOfWinnerInsideList));
-					
-					//Winner declared. Call function to exit the game HERE///////////////////////////////////////////////////////
-					
-					//if the two (or more) players tie on points, then the winner is the player with the smallest index.
-				}
+			doesAnyPayerHave100PointsYet(UI, controller, number, round);
 				
 				
 			//Players take a first turn.
@@ -132,13 +92,22 @@ public class SkunkApp
 					
 				//Determine who is winning after this round of play
 					
-					//Does anyone have 100 or more points??? --> They win.
+					
 					
 					//Who currently has the most points??? They are currently winning.
+					
 					String winning = currentlyWinning(controller);
+					
 					int wins = indexOfPlayerCurrentlyWinningTheGame(controller);
-					UI.printCurrentlyWinning(winning, this.roundOfPlay, controller.list.get(wins));
-				
+					
+					if (wins == 44)
+					{
+						UI.print("\nNo player is currently winning.");
+					}
+					else
+					{
+						UI.printCurrentlyWinning(winning, this.roundOfPlay, controller.list.get(wins));
+					}
 		} //end of for loop that establishes 5 rounds of the game	
 		
 		//who is the winner after 5 rounds? Who has the most points?
@@ -148,6 +117,51 @@ public class SkunkApp
 		
 			
 }
+
+	public void doesAnyPayerHave100PointsYet(SkunkUI UI, SkunkController controller, int number, int round) {
+		ArrayList<Player> hasMoreThan99Points = new ArrayList<Player>();
+		
+		
+		
+		for (int i = 0; i < number; i++)	
+		{
+			//check point totals
+				for (Player f: controller.list)
+				{
+					if (f.get_total_game_points() > 99)
+					{
+						hasMoreThan99Points.add(f);
+					}
+				}		
+		}
+		
+		if (hasMoreThan99Points.size() == 0)
+		{
+			//There is no winner, yet. Keep playing rounds of the game.
+		}
+		else if (hasMoreThan99Points.size() == 1)
+		{
+			//player f is the winner
+			//System.out.println("\n" + hasMoreThan99Points.get(0).get_player_name() + " wins the game!!!");
+			UI.printCurrentlyWinning(hasMoreThan99Points.get(0).get_player_name(), round, hasMoreThan99Points.get(0) );
+			
+			//Winner declared. Call function to exit the game HERE///////////////////////
+			
+		}
+		else // (hasMoreThan99Points.size() > 1)
+		{
+			//Check who has more points and declare that player the winner
+			String winner = currentlyWinning(controller);
+			int indexOfWinnerInsideList = 0;
+			indexOfWinnerInsideList = indexOfPlayerCurrentlyWinningTheGame(controller);
+					
+			UI.printCurrentlyWinning(winner, round, hasMoreThan99Points.get(indexOfWinnerInsideList));
+			
+			//Winner declared. Call function to exit the game HERE///////////////////////////////////////////////////////
+			
+			//if the two (or more) players tie on points, then the winner is the player with the smallest index.
+		}
+	}
 
 
 	public ArrayList<Player> playerTurns(SkunkApp app, SkunkUI UI, SkunkController controller, ArrayList<Player> players, int roundOfPlay) 
@@ -313,8 +327,8 @@ public class SkunkApp
 			
 			for (int i = 0; i < this.numberOfPlayers; i++)
 			{	
-				System.out.println("winning[" + i + "]" + winning[i]);
-				System.out.println("countWins i=" + i + "=" + countWins + " for " + q.get_player_name());
+				//System.out.println("winning[" + i + "]" + winning[i]);
+				//System.out.println("countWins i=" + i + "=" + countWins + " for " + q.get_player_name());
 				
 				//Count the number of wins for a particular player
 				if (winning[i].equals(true))
@@ -334,9 +348,8 @@ public class SkunkApp
 			}//end for loop
 		}// end for (Player q: controller.list)
     	
-    	System.out.println("\nSkunkApp's indexOfPlayerCurrentlyWinningTheGame() returns indexOfWinner = " + indexOfWinner);
+    //System.out.println("\nSkunkApp's indexOfPlayerCurrentlyWinningTheGame() returns indexOfWinner = " + indexOfWinner);
 	return indexOfWinner; 
-	
     }
 
    

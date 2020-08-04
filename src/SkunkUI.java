@@ -87,6 +87,7 @@ public class SkunkUI
 	{
 		if (i == 1)
 		{
+			System.out.println("--------------------------------------------------------------");
 			System.out.println("   ___o              ____________");
 			System.out.println("  / 0 |            _/      _____/");
 			System.out.println(" (__   \\_______  /    _____/       ZERO");
@@ -94,12 +95,13 @@ public class SkunkUI
 			System.out.println("    |  _______  /                THIS");
 			System.out.println("    / /      / /               ROUND");
 			System.out.println("   JJJ      JJJ");
-			System.out.println("--------------------------------------------------------------");
+			System.out.println("");
 			System.out.println("  Pew, You rolled a SKUNK!!!!    Your turn is over.			 ");
 			System.out.println("--------------------------------------------------------------");
 		}
 		else
 		{
+			System.out.println("--------------------------------------------------------------------");
 			System.out.println("   ___o             ____________        ___o             ____________");
 			System.out.println("  / 0 |           _/      _____//      / 0 |           _/      _____//");
 			System.out.println(" (__   \\_______  //    _____//       (__   \\_______  //    _____// ");
@@ -107,7 +109,7 @@ public class SkunkUI
 			System.out.println("    |  ______   \\//         YOU         |  ______   \\//");
 			System.out.println("    // //    // //         LOOSE ALL     // //    // //");
 			System.out.println("    JJJ      JJJ         GAME POINTS!!!  JJJ      JJJ");
-			System.out.println("--------------------------------------------------------------------");
+			System.out.println("");
 			System.out.println("   Peewww, You rolled two SKUNKS!!!!  	 Your turn is over.");
 			System.out.println("--------------------------------------------------------------------");
 			
@@ -189,7 +191,20 @@ public class SkunkUI
 			        for(int j = 0; j < (app.roundOfPlay); j++)
 			        {
 			        	//System.out.print("" + q.pointsPerRound[j]);
-			        	System.out.print("" + players.get(q.get_player_index()).pointsPerRound[j] + "   ");
+			        	System.out.print("" + players.get(q.get_player_index()).pointsPerRound[j] );
+			        	
+			        	if (players.get(q.get_player_index()).pointsPerRound[j] < 10)
+			        	{
+			        		System.out.print("   ");
+			        	}
+			        	else if ( (9 < players.get(q.get_player_index() ).pointsPerRound[j]) && (( players.get(q.get_player_index() ).pointsPerRound[j]) < 100) )
+			        	{
+			        		System.out.print("  ");
+			        	}
+			        	else
+			        	{
+			        		System.out.print(" ");
+			        	}
 			        }
 			        
 			        this.print("\n Total points = " + q.get_total_game_points());

@@ -218,7 +218,7 @@ public class Player
 		
 		//Player takes the first roll of the dice in his turn. roll_of_dice contains the sum of the two die.
 		setRollsThisTurn(1);
-		roll_of_dice = myDice.roll_dice(p,roundOfPlay,UI);
+		roll_of_dice = myDice.roll_dice(p,roundOfPlay,UI, controller);
 		
 		
 		//set total current points into the array inside the Player inside the arraylist.
@@ -335,7 +335,7 @@ public class Player
 					p.rolls_this_turn ++;
 					
 					
-					roll_of_dice = myDice.roll_dice(p, roundOfPlay, UI);
+					roll_of_dice = myDice.roll_dice(p, roundOfPlay, UI, controller);
 					
 			
 					
