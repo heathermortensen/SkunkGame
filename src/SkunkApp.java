@@ -86,7 +86,7 @@ public class SkunkApp
 		
 					//print scorecard here..........
 					
-					System.out.println("");
+					UI.printLine();
 					UI.printScorecard(controller.list, this, controller);
 					
 					this.longPauseGame();

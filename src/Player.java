@@ -157,7 +157,6 @@ public class Player
 		this.pointsPerRound[index] =  points;
 		 
 //		System.out.println("////////////this.pointsPerRound[" + index + "] =  points = "+ this.pointsPerRound[index]);
-		System.out.println("");
 		
 	return this;
 	}
@@ -238,27 +237,13 @@ public class Player
 		controller.list.set(playerIndex, p2);
 		
 		//Move this to class SkunkUI.java
-		//Output
-		System.out.println("------------------------------------------------------------------------------------------");
-		System.out.println("                    QUICK    SCORECARD     ROUND " + roundOfPlay);
-		System.out.println("------------------------------------------------------------------------------------------");
 		
-			//for (Player q : controller.list)
-			for (int k = 0; k < p.get_player_index(); k++)
-			{   
-				Player h = new Player(controller.list.get(k));
-			    System.out.print("\n" + h.get_player_name() + ":  ");
-			    System.out.println("Points this round  = "+ controller.list.get(h.get_player_index()).pointsPerRound[roundOfPlay-1]);
-			    System.out.println("-----------------------------------------------------------------------------");
-			}
-			
-			System.out.println("\n");
-			
-			UI.print(p.player_name + ": ");
-			UI.printRollPoints(p.rolls_this_turn, roll_of_dice);
+		UI.quickScorecardOutputAfterPlayerTurn(UI, controller, p, roundOfPlay, roll_of_dice);
 	
 	return controller;
 	}
+
+	
 	
 	private Player set_points_2nd_thru_nth_roll_first_turn(int roll_of_dice, int roundOfPlay) 
 	{

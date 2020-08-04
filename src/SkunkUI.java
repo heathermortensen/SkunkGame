@@ -148,6 +148,26 @@ public class SkunkUI
 //			System.out.println("//////////////////////////////////////////////////////////////////////////////////");
 //		}
 //	}
+	public void quickScorecardOutputAfterPlayerTurn(SkunkUI UI, SkunkController controller, Player p, int roundOfPlay,
+			int roll_of_dice) {
+		System.out.println("------------------------------------------------------------------------------------------");
+		System.out.println("                    QUICK    SCORECARD     ROUND " + roundOfPlay);
+		System.out.println("------------------------------------------------------------------------------------------");
+		
+			//for (Player q : controller.list)
+			for (int k = 0; k < p.get_player_index(); k++)
+			{   
+				Player h = new Player(controller.list.get(k));
+			    System.out.print("\n" + h.get_player_name() + ":  ");
+			    System.out.println("Points this round  = "+ controller.list.get(h.get_player_index()).pointsPerRound[roundOfPlay-1]);
+			    System.out.println("-----------------------------------------------------------------------------");
+			}
+			
+			System.out.println("\n");
+			
+			UI.print(p.player_name + ": ");
+			UI.printRollPoints(p.rolls_this_turn, roll_of_dice);
+	}
 	
 	public void printPointsThisRound(String output)
 	{

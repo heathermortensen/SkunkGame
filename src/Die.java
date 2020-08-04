@@ -26,8 +26,7 @@ public class Die
 		return roll;
 		
 	}
-	//Put this inside the UISkunk class......
-	//public String showDie(int value)
+	//Put this inside the UISkunk class......//public String showDie(int value)
 	
 	public String getDiePic(int value, SkunkUI ui)
 	{
