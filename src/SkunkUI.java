@@ -6,8 +6,10 @@ public class SkunkUI
 {
 	public void welcomeToSkunk()
 	{
-		System.out.println("Update rules: incase of tie, default winner is the player with largest index in array.");
+		System.out.println("Exit the game user input");
 		System.out.println("fix scorecard output.");
+		System.out.println("Double skunk isn't clearing all rounds of points.");
+		System.out.println("winner doesn't work. That function is messy.");
 		System.out.println("");
 		System.out.println(" _______                _");
 		System.out.println("/  ___| |              | |");  
@@ -245,10 +247,16 @@ public class SkunkUI
 
 	}
 
-	public void printCurrentlyWinning(String winning) 
+	public void printCurrentlyWinning(String winning, int round) 
 	{
 		// Print the name of whomever is currently winning at the end of each round.
 		System.out.println("\n" + winning + " is currently winning.");
+		
+		if (round == 5)
+		{
+			System.out.println("\n ******* " + winning + " WINS the game !!!! ******* ");
+			System.out.println("\n ******* Winner, winner! Chicken dinner!!!! ******* ");
+		}
 		
 	}
 	

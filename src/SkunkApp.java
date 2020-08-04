@@ -96,7 +96,7 @@ public class SkunkApp
 				else // (hasMoreThan99Points.size() > 1)
 				{
 					//See which player has more points and declare that player the winner
-					winner = new Player(hasMaxPoints(controller.list));
+					//winner = new Player(hasMaxPoints(controller.list));
 					System.out.println("\n" +winner.get_player_name() + " wins the game!!!");
 				}
 				
@@ -117,20 +117,22 @@ public class SkunkApp
 					System.out.println("");
 					UI.printScorecard(controller.list, this, controller);
 					
+					this.longPauseGame();
+					
 				//Determine who is winning after this round of play
 					
 					//Does anyone have 100 or more points??? --> They win.
 					
 					//Who currently has the most points??? They are currently winning.
 					String winning = currentlyWinning(controller);
-					UI.printCurrentlyWinning(winning);
+					UI.printCurrentlyWinning(winning, this.roundOfPlay);
 				
 		} //end of for loop that establishes 5 rounds of the game	
 		
 		//who is the winner after 5 rounds? Who has the most points?
 		
-		Player winner = new Player(hasMaxPoints(controller.list));
-		System.out.println("winner is " + winner.get_player_name());
+		//Player winner = new Player(hasMaxPoints(controller.list));
+		//System.out.println("winner is " + winner.get_player_name());
 		
 			
 }
@@ -182,6 +184,16 @@ public class SkunkApp
    	 	
    	 	return b;
     }
+    
+	public void longPauseGame() 
+	{
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
     
     public String currentlyWinning(SkunkController controller)
     {
@@ -247,43 +259,7 @@ public class SkunkApp
 	return name; 	
     }
 
-    public Player hasMaxPoints(ArrayList<Player> list)
-    {
-    	
-    	int playerIndexWithMaxPoints = 75;
-    	
-    	int sizeOfList = list.size();
-    	
-    	//is i.getTotalPoints larger than any other player?
-    	
-    	for (int i = 0; i < sizeOfList; i++)
-		{
-			//p = 0, 1, 2, 3, ...
-    		Player test = list.get(i);
-
-				for (Player e : list)
-				{
-					if (test.get_total_game_points() > e.get_total_game_points())
-					{
-						//Player hasMaxPoints = new Player(test);
-						playerIndexWithMaxPoints = i;
-						System.out.println("Player index "+i+ " has max points");
-						
-					}
-					else if (test.get_total_game_points() == e.get_total_game_points())
-					{
-						//default to the player with the last index in the list as the winner.
-						
-						//Player hasMaxPoints = new Player(e);
-						playerIndexWithMaxPoints = e.get_player_index();
-						System.out.println("Player index "+ e.get_player_index() + " has max points");
-					}
-				}
-				
-		}//end for loop
-
-	return list.get(playerIndexWithMaxPoints); 	
-    }
+   
     
 }
 

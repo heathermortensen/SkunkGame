@@ -384,7 +384,6 @@ public class Player
 	}
 
 
-
 	public void shortPauseGame() 
 	{
 		try {
@@ -394,6 +393,7 @@ public class Player
 			e.printStackTrace();
 		}
 	}
+	
 	public void longPauseGame() 
 	{
 		try {

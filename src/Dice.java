@@ -60,12 +60,18 @@ public class Dice
 			sum = 0;
 			p.cummulative_points_this_turn =0;
 			p.set_points_this_turn(0, round);
-			//p.set_points_this_turn(0, index);
-			//p.pointsPerRound[round] =  0;
 			p.pointsPerRound[index] =  0;
-			////////////////////////////////////////////////////This might be failing. Barley ever executes.
+			
+			//TEST THIS!!!//////////////////////////////////////////////This might be failing. Barley ever executes.
 			//void all points accumulated by player
-			p = p.set_points_ALL_rounds_to_zero();
+		
+			while (index >= 0)
+			{
+				p.pointsPerRound[index] =  0;
+				System.out.println("index = " + index + " & " + p.player_name + "'s points for round " + (index+1) + " = " + p.pointsPerRound[index]);
+				index--;
+			}
+			
 			ui.printSkunk(2);
 			
 			this.skunkEndsTurn = true;
