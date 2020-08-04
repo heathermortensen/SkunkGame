@@ -24,11 +24,17 @@ A scorecard shows the cumulative points across all of a players turns rolling th
 
 ### Sample Program Output
 
-This shows the program output for 1 round of play in a game with 2 players. Each player rolls the dice twice.
+This shows the program output for 1 round of play in a game with 2 players. 
 
-Heather is the first player. She rolls 9 points and chooses to roll a second time. In her second roll, she rolls a 1 (aka skunk) and looses all the points in her turn.
+During a round of skunk, each player takes their turn.
 
-Garth is the second player. He initially rolls 10 points. In his second roll, he adds another 7 points. Garth has a total of 17 points and is leading the game.
+Heather is the first player. 
+
+She chooses to roll the dice 3 times and accumulates 20 total points, until she rolls a skunk in her third roll and looses all the points in her first turn.
+
+Garth is the second player. 
+
+He rolls only once and gets 9 points. Garth's point total means that he is winning the game at the end of round 1.
 
 ![](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/ScreenshotsOf1Turn.png)
 
@@ -65,11 +71,11 @@ While we might visualize the data as a matrix, the actual implementation uses 2 
 - [ ] Do I have time to add some tests?
 - [ ] Add MVC
 - [x] Clean up GitHub README.md
-- [ ] Update the program output inside the readme.
+- [x] Update the program output inside the readme.
 - [ ] Make class diagram
 - [x] winner doesn't work. That function is messy - delete it.
-- [ ] format scorecard output for double and triple digits.
-- [ ] Double skunk (snake eyes) isn't clearing all rounds of player's points.
+- [x] format scorecard output for double and triple digits.
+- [ ] Double skunk (snake eyes) isn't clearing all rounds of player's points??
 - [ ] Exit the game user input
 - [ ] Refractor the playGame() method in SkunkApp.java
 - [ ] 		
