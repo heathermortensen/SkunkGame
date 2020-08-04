@@ -6,11 +6,11 @@ public class SkunkUI
 {
 	public void welcomeToSkunk()
 	{
-		System.out.println("SkunkApp, line #169. Exit the game user input");
-		System.out.println("Refractor the playGame method in SkunkApp.java");
 		System.out.println("");
-		System.out.println("Double skunk isn't clearing all rounds of points.");
-		System.out.println("");
+		System.out.println("Backend UML");
+		System.out.println("Winner must be declared for player points < 100 and tie game");
+		System.out.println("Double skunk isn't clearing all rounds of points - Test this");
+		System.out.println("Missing a Dice.java test class. Needed for snake eyes test");
 		System.out.println("Input validation.");
 		System.out.println("");
 		System.out.println(" _______                _");
@@ -159,7 +159,7 @@ public class SkunkUI
 		else
 			roundOfPlay = "System error line 88, File SkunkUI.java";
 		
-		System.out.println("\n------------------------------------------------" );
+		System.out.println("------------------------------------------------" );
 		System.out.println("|    ROUND OF PLAY = " + roundOfPlay +    "                |");	
 		System.out.println("------------------------------------------------" );
 		
@@ -211,13 +211,10 @@ public class SkunkUI
 			        
 			        this.printLine();
 		}
-		
 			    
 		System.out.println("///////////////////////////////////////////////////");
-		System.out.println("///////////////////////////////////////////////////");
 		System.out.println("///////////////////////////////////////////////////");			        
-			        
-		
+			        	
 	}
 
 	
@@ -266,7 +263,7 @@ public class SkunkUI
 
 	public void printCurrentlyWinning(String winning, int round, Player p) 
 	{	
-		if (round == 5) //|| (p.get_total_game_points() > 100) )
+		if (round == 5) 
 		{
 			System.out.println("\n ***************** "+ p.player_name + " WINS the game !!!!   **************************** ");
 			System.out.println("\n ****************         Winner, winner! Chicken dinner!!!! ********************** ");

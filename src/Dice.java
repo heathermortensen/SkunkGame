@@ -72,6 +72,8 @@ public class Dice
 			{
 				controller.list.get(p.get_player_index()).pointsPerRound[index] = 0;
 				//p.pointsPerRound[index] =  0;
+				
+				//Debug
 				System.out.println("index = " + index + " & " + p.player_name + "'s points for round " + (index+1) + " = " + p.pointsPerRound[index]);
 				index--;
 			}
