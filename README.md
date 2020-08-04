@@ -16,17 +16,13 @@ Skunk is a dice rolling game where each player can roll a pair of dice as many t
 
 <img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Skunkdocumentation.png?raw=true" alt="Use case" style="zoom: 50%;" />
 
- This scorecard shown here summarizes the example game above. Heather wins because she was first to reach 100 points.  
-
-A scorecard shows the cumulative points across all of a players turns rolling the dice.
+This scorecard shown here summarizes the example game above. Heather wins because she was first to reach 100 points.  A scorecard shows the cumulative points across all of a players turns rolling the dice.
 
 <img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Scorecard.png?raw=true" alt="Skunk Scorecard" style="zoom: 200%;" />
 
 ### Sample Program Output
 
-This shows the program output for 1 round of play in a game with 2 players. 
-
-During a round of skunk, each player takes their turn.
+This shows the program output for 1 round of play in a game with 2 players. During a round of skunk, each player takes their turn.
 
 Heather is the first player. 
 
@@ -75,9 +71,9 @@ While we might visualize the data as a matrix, the actual implementation uses 2 
 - [ ] Make class diagram
 - [x] winner doesn't work. That function is messy - delete it.
 - [x] format scorecard output for double and triple digits.
-- [ ] Double skunk (snake eyes) isn't clearing all rounds of player's points??
+- [ ] Double skunk (snake eyes) isn't clearing all rounds of player's points?? I don't know, it barley ever executes. Verify
 - [ ] Exit the game user input
-- [ ] Refractor the playGame() method in SkunkApp.java
+- [x] Refractor the playGame() method in SkunkApp.java
 - [ ] 		
   Input validation
   		
