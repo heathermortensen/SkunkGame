@@ -68,7 +68,7 @@ While we might visualize the data as a matrix, the actual implementation uses 2 
 - [ ] Add MVC
 - [x] Clean up GitHub README.md
 - [x] Update the program output inside the readme.
-- [ ] Make class diagram for backend using Draw.io?
+- [x] Autogenerate a class diagram for backend using Visual Paradigm. Stored in images folder: classDiagramForSkunkGame.png
 - [x] winner doesn't work. That function is messy - delete it.
 - [x] format scorecard output for double and triple digits.
 - [ ] Double skunk (snake eyes) isn't clearing all rounds of player's points? It barley ever executes. Test this for all player points = 0.
@@ -76,5 +76,5 @@ While we might visualize the data as a matrix, the actual implementation uses 2 
 - [x] Refractor the playGame() method in SkunkApp.java
 - [ ] Input validation
 - [x] Winner must be declared for player points < 100 and tie game (DONE).
-- [ ] 		Missing a Dice.java test class. Needed for snake eyes test.
+- [ ] 		Missing a TestDice.java JUnit test class. Needed for snake eyes test.
   
