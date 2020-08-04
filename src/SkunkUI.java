@@ -7,9 +7,11 @@ public class SkunkUI
 	public void welcomeToSkunk()
 	{
 		System.out.println("Exit the game user input");
+		System.out.println("Refractor the playGame method in SkunkApp.java");
 		System.out.println("fix scorecard output.");
 		System.out.println("Double skunk isn't clearing all rounds of points.");
 		System.out.println("winner doesn't work. That function is messy.");
+		System.out.println("Input validation.");
 		System.out.println("");
 		System.out.println(" _______                _");
 		System.out.println("/  ___| |              | |");  
@@ -247,15 +249,29 @@ public class SkunkUI
 
 	}
 
-	public void printCurrentlyWinning(String winning, int round) 
-	{
-		// Print the name of whomever is currently winning at the end of each round.
-		System.out.println("\n" + winning + " is currently winning.");
-		
-		if (round == 5)
+	public void printCurrentlyWinning(String winning, int round, Player p) 
+	{	
+		if (round == 5) //|| (p.get_total_game_points() > 100) )
 		{
-			System.out.println("\n ******* " + winning + " WINS the game !!!! ******* ");
-			System.out.println("\n ******* Winner, winner! Chicken dinner!!!! ******* ");
+			System.out.println("\n ***************** "+ p.player_name + " WINS the game !!!!   **************************** ");
+			System.out.println("\n ****************         Winner, winner! Chicken dinner!!!! ********************** ");
+			
+			if (p.get_total_game_points() > 99)
+			{
+				System.out.println("\n ***************** "+ p.player_name + " WINS the game !!!!   **************************** ");
+				System.out.println("\n ******* Winner double chicken dinner! You got more that 100 points!!! ******* ");
+			}
+		}
+		else
+		{
+			// Print the name of whomever is currently winning at the end of each round.
+			System.out.println("\n" + winning + " is currently winning.");
+			
+			if (p.get_total_game_points() > 99)
+			{
+				System.out.println("\n ***************** "+ p.player_name + " WINS the game !!!!   **************************** ");
+				System.out.println("\n ******* Winner double chicken dinner! You got more that 100 points!!! ******* ");
+			}
 		}
 		
 	}

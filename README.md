@@ -69,5 +69,10 @@ While we might visualize the data as a matrix, the actual implementation uses 2 
 - [ ] Make class diagram
 - [x] winner doesn't work. That function is messy - delete it.
 - [ ] format scorecard output for double and triple digits.
-- [ ] 		Double skunk (snake eyes) isn't clearing all rounds of player's points.
-  		  		
+- [ ] Double skunk (snake eyes) isn't clearing all rounds of player's points.
+- [ ] Exit the game user input
+- [ ] Refractor the playGame() method in SkunkApp.java
+- [ ] 		
+  Input validation
+  		
+  

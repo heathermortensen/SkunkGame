@@ -91,13 +91,24 @@ public class SkunkApp
 				else if (hasMoreThan99Points.size() == 1)
 				{
 					//player f is the winner
-					System.out.println("\n" + hasMoreThan99Points.get(0).get_player_name() + " wins the game!!!");
+					//System.out.println("\n" + hasMoreThan99Points.get(0).get_player_name() + " wins the game!!!");
+					UI.printCurrentlyWinning(hasMoreThan99Points.get(0).get_player_name(), round, hasMoreThan99Points.get(0) );
+					
+					//Winner declared. Call function to exit the game HERE///////////////////////
+					
 				}
 				else // (hasMoreThan99Points.size() > 1)
 				{
-					//See which player has more points and declare that player the winner
-					//winner = new Player(hasMaxPoints(controller.list));
-					System.out.println("\n" +winner.get_player_name() + " wins the game!!!");
+					//Check who has more points and declare that player the winner
+					String winner = currentlyWinning(controller);
+					int indexOfWinnerInsideList = 0;
+					indexOfWinnerInsideList = indexOfPlayerCurrentlyWinningTheGame(controller);
+							
+					UI.printCurrentlyWinning(winner, round, hasMoreThan99Points.get(indexOfWinnerInsideList));
+					
+					//Winner declared. Call function to exit the game HERE///////////////////////////////////////////////////////
+					
+					//if the two (or more) players tie on points, then the winner is the player with the smallest index.
 				}
 				
 				
@@ -125,7 +136,8 @@ public class SkunkApp
 					
 					//Who currently has the most points??? They are currently winning.
 					String winning = currentlyWinning(controller);
-					UI.printCurrentlyWinning(winning, this.roundOfPlay);
+					int wins = indexOfPlayerCurrentlyWinningTheGame(controller);
+					UI.printCurrentlyWinning(winning, this.roundOfPlay, controller.list.get(wins));
 				
 		} //end of for loop that establishes 5 rounds of the game	
 		
@@ -257,6 +269,74 @@ public class SkunkApp
 			}
 		}
 	return name; 	
+    }
+    
+    public int indexOfPlayerCurrentlyWinningTheGame(SkunkController controller)
+    {
+    	Player p = null;
+    	int indexOfWinner = 44;
+    	
+    	//which player has the most points?
+    	for (Player q: controller.list)
+		{
+			//p = 0, 1, 2, 3
+    		Boolean [] winning = new Boolean[this.numberOfPlayers];
+			
+			for (int m = 0; m < this.numberOfPlayers; m++)
+			{
+				p = controller.list.get(m);
+				
+				if (q.get_player_index() != p.get_player_index())
+				{
+					if (q.get_total_game_points() > p.get_total_game_points())
+					{
+						winning[p.get_player_index()] = true;
+						//System.out.println("q.get_total_game_points() = "+q.get_total_game_points() + " > " + p.get_total_game_points()+" =p.get_total_game_points() ");
+					}
+					else //if q.get_total_game_points() < p.get_total_game_points()
+					{
+						winning[p.get_player_index()] = false;
+						
+					}
+				
+				}
+				else // (q.get_player_index() == p.get_player_index())
+				{
+					//Each player will have 1 win = true (when its compared with itself)
+					winning[q.get_player_index()] = true;
+				}
+			}//end for loop
+			
+			//System.out.println("\n");
+			
+			int countWins = 0;
+			
+			for (int i = 0; i < this.numberOfPlayers; i++)
+			{	
+				System.out.println("winning[" + i + "]" + winning[i]);
+				System.out.println("countWins i=" + i + "=" + countWins + " for " + q.get_player_name());
+				
+				//Count the number of wins for a particular player
+				if (winning[i].equals(true))
+				{
+					countWins++;
+				}
+				
+				//If this player's # of wins = the # of players in the game, this player is the winner of the game.
+				if (countWins == this.numberOfPlayers)
+				{		
+					indexOfWinner = q.player_index;
+				
+					//This will always execute for one player.????Maybe not
+				//return indexOfWinner;
+				}
+				
+			}//end for loop
+		}// end for (Player q: controller.list)
+    	
+    	System.out.println("\nSkunkApp's indexOfPlayerCurrentlyWinningTheGame() returns indexOfWinner = " + indexOfWinner);
+	return indexOfWinner; 
+	
     }
 
    
