@@ -27,19 +27,12 @@ public class Die
 		
 	}
 	//Put this inside the UISkunk class......
-	public String showDie(int value)
+	//public String showDie(int value)
+	
+	public String getDiePic(int value, SkunkUI ui)
 	{
-		String diePicture = "";
+		String showDie = ui.printDie(value);
 		
-		diePicture = diePicture.concat("     ______\n");
-		diePicture = diePicture.concat("    |      |\\\n");
-		diePicture = diePicture.concat("    |  "+ value+"   | |\n");	
-		diePicture = diePicture.concat("    |______| |\n");
-		diePicture = diePicture.concat("     \\______\\|\n");
-	
-		//diePicture = diePicture.concat("   Move this into UI class  \n");
-		
-		return diePicture;
+	return showDie;
 	}
-	
 }

@@ -103,7 +103,17 @@ public class SkunkApp
 					
 					if (wins == 44)
 					{
-						UI.print("\nNo player is currently winning.");
+						if (round != 5)
+						{
+							UI.print("\nNo player is currently winning.");
+						}
+						else  //Its the last round of the game and a player must be declared.
+						{
+							//players tie with less than 100 points
+							int index = controller.list.size() - 1;
+							UI.print("" + controller.list.get(index).player_name + " wins by default with " + controller.list.get(index).get_total_game_points() + " points!");						
+							UI.printLine();
+						}	
 					}
 					else
 					{
@@ -181,7 +191,7 @@ public class SkunkApp
 				int winningPointTotal = hasMoreThan99Points.get(indexOfWinnerInsideList).get_total_game_points();
 				
 				//Tied is an arraylist holding players with > 99 points that are tied.
-				tied = findTiedPlayers(UI, hasMoreThan99Points, indexOfWinnerInsideList, winningPointTotal);
+				tied = findTiedPlayersOver99TotalGamePoints(UI, hasMoreThan99Points, indexOfWinnerInsideList, winningPointTotal);
 				//declare the winner to be the last player in the list
 				int size = tied.size();
 				int index = size -1;
@@ -196,7 +206,7 @@ public class SkunkApp
 		}
 	}
 
-	public ArrayList<Player> findTiedPlayers(SkunkUI UI, ArrayList<Player> hasMoreThan99Points, int indexOfWinnerInsideList, int winningPointTotal) 
+	public ArrayList<Player> findTiedPlayersOver99TotalGamePoints(SkunkUI UI, ArrayList<Player> hasMoreThan99Points, int indexOfWinnerInsideList, int winningPointTotal) 
 	{
 		ArrayList<Player> tiedPlayers = new ArrayList<Player>();
 		

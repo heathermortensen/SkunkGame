@@ -61,39 +61,20 @@ While we might visualize the data as a matrix, the actual implementation uses 2 
 ### Future Project Improvements
 
 - [x] Make the pause between players shorter and create a pause after selecting "Yes" to option to roll the dice. 
-
 - [x] Add loop around playerTurns for 5 rounds of game. But, not yet. Otherwise, it will take forever to run the program.
-
-- [ ] Move Any remaining output into SkunkUI.java class. There's some scorecard outputs in the Player class and a Dice.java picture.
-
+- [ ] Move Any remaining output into SkunkUI.java class. There's some scorecard outputs  (NOT DONE) in the Player class and a Dice.java picture (DONE).
 - [x] Make Scorecard output at the end of each round of turns.
-
-- [ ] Do I have time to add some tests? Write some for the conditions that don't execute often.
-
+- [ ] Do I have time to add some tests? Write some for the conditions that don't execute often. Started.
 - [ ] Add MVC
-
 - [x] Clean up GitHub README.md
-
 - [x] Update the program output inside the readme.
-
-- [ ] Make class diagram for backend?
-
+- [ ] Make class diagram for backend using Draw.io?
 - [x] winner doesn't work. That function is messy - delete it.
-
 - [x] format scorecard output for double and triple digits.
-
-- [ ] Double skunk (snake eyes) isn't clearing all rounds of player's points?? It barley ever executes. Verify using tests.
-
+- [ ] Double skunk (snake eyes) isn't clearing all rounds of player's points? It barley ever executes. Test this for all player points = 0.
 - [x] Exit the game user input
-
 - [x] Refractor the playGame() method in SkunkApp.java
-
-- [ ] 		Input validation
+- [ ] Input validation
+- [x] Winner must be declared for player points < 100 and tie game (DONE).
+- [ ] 		Missing a Dice.java test class. Needed for snake eyes test.
   
-- [ ] 		To Do:
-  
-  Backend UML
-  Winner must be declared for player points < 100 and tie game
-  Double skunk isn't clearing all rounds of points - Test this for all player points = 0.
-  Missing a Dice.java test class. Needed for snake eyes test
-  Input validation.

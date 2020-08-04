@@ -29,12 +29,17 @@ public class Dice
 		
 		shortPauseGame();
 		
-		System.out.println("" + die_1.showDie(roll_1));
+		//New code
+		ui.print("" + die_1.getDiePic(roll_1, ui)); //returns a strng
+		ui.print("" + die_2.getDiePic(roll_2, ui)); //returns a strng
+		ui.printLine();
 		
-		System.out.println("");
-		
-		System.out.println("" + die_2.showDie(roll_2));
-		
+//		System.out.println("" + die_1.showDie(roll_1));
+//		
+//		System.out.println("");
+//		
+//		System.out.println("" + die_2.showDie(roll_2));
+//		
 		int skunkCount = checkIfSkunk(roll_1,roll_2);
 		
 		//player rolls at least one 1.

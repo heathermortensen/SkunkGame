@@ -83,6 +83,21 @@ public class SkunkUI
 		System.out.print(output);
 	}
 	
+	public String printDie(int value)
+	{
+		String diePicture = "";
+		
+		diePicture = diePicture.concat("     ______\n");
+		diePicture = diePicture.concat("    |      |\\\n");
+		diePicture = diePicture.concat("    |  "+ value+"   | |\n");	
+		diePicture = diePicture.concat("    |______| |\n");
+		diePicture = diePicture.concat("     \\______\\|\n");
+	
+		//diePicture = diePicture.concat("   Move this into UI class  \n");
+		
+		return diePicture;
+	}
+	
 	public void printSkunk(int i)
 	{
 		if (i == 1)
