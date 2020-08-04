@@ -6,11 +6,11 @@ public class SkunkUI
 {
 	public void welcomeToSkunk()
 	{
-		System.out.println("Exit the game user input");
+		System.out.println("SkunkApp, line #169. Exit the game user input");
 		System.out.println("Refractor the playGame method in SkunkApp.java");
-		System.out.println("fix scorecard output.");
+		System.out.println("");
 		System.out.println("Double skunk isn't clearing all rounds of points.");
-		System.out.println("winner doesn't work. That function is messy.");
+		System.out.println("");
 		System.out.println("Input validation.");
 		System.out.println("");
 		System.out.println(" _______                _");
@@ -289,6 +289,20 @@ public class SkunkUI
 			}
 		}
 		
+	}
+	
+	public String getUserInputToExitGame()
+	{
+		String exitTheGame = "";
+		@SuppressWarnings("resource")
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print("\n Exit the game? Y/n >>");
+		
+		//Get input from user.
+		exitTheGame = scan.nextLine();
+		
+	return exitTheGame;
 	}
 	
 }

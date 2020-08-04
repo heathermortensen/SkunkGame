@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class SkunkApp 
 {
@@ -115,17 +116,20 @@ public class SkunkApp
 		//Player winner = new Player(hasMaxPoints(controller.list));
 		//System.out.println("winner is " + winner.get_player_name());
 		
+		//Exit the game?
+		exitGame(UI.getUserInputToExitGame());
+		
+		
 			
 }
 
-	public void doesAnyPayerHave100PointsYet(SkunkUI UI, SkunkController controller, int number, int round) {
+	public void doesAnyPayerHave100PointsYet(SkunkUI UI, SkunkController controller, int number, int round) 
+	{
 		ArrayList<Player> hasMoreThan99Points = new ArrayList<Player>();
-		
-		
 		
 		for (int i = 0; i < number; i++)	
 		{
-			//check point totals
+				//check point totals
 				for (Player f: controller.list)
 				{
 					if (f.get_total_game_points() > 99)
@@ -145,7 +149,8 @@ public class SkunkApp
 			//System.out.println("\n" + hasMoreThan99Points.get(0).get_player_name() + " wins the game!!!");
 			UI.printCurrentlyWinning(hasMoreThan99Points.get(0).get_player_name(), round, hasMoreThan99Points.get(0) );
 			
-			//Winner declared. Call function to exit the game HERE///////////////////////
+			//Winner declared. Call function to exit the game HERE.
+			exitGame(UI.getUserInputToExitGame());
 			
 		}
 		else // (hasMoreThan99Points.size() > 1)
@@ -157,9 +162,11 @@ public class SkunkApp
 					
 			UI.printCurrentlyWinning(winner, round, hasMoreThan99Points.get(indexOfWinnerInsideList));
 			
-			//Winner declared. Call function to exit the game HERE///////////////////////////////////////////////////////
+			//Winner declared. Call function to exit the game HERE.
+			exitGame(UI.getUserInputToExitGame());
 			
-			//if the two (or more) players tie on points, then the winner is the player with the smallest index.
+			//if the two (or more) players tie on points, then the winner is the player with the smallest index./////////
+			//////////////////////////////////////
 		}
 	}
 
@@ -351,6 +358,21 @@ public class SkunkApp
     //System.out.println("\nSkunkApp's indexOfPlayerCurrentlyWinningTheGame() returns indexOfWinner = " + indexOfWinner);
 	return indexOfWinner; 
     }
+    
+    public void exitGame(String userInput)
+	{
+		String exitTheGame = userInput;
+		
+		
+		if ((exitTheGame == "Y")||(exitTheGame == "y")||(exitTheGame == "Yes")||(exitTheGame == "yes")||(exitTheGame == "YES"))
+		{
+			System.exit(0);
+		}
+		else if ((exitTheGame == "N")||(exitTheGame == "n")||(exitTheGame == "No")||(exitTheGame == "no")||(exitTheGame == "NO"))
+		{
+			//Do whatever here
+		}
+	}
 
    
     
