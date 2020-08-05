@@ -16,7 +16,7 @@ Skunk is a dice rolling game where each player can roll a pair of dice as many t
 
 <img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Skunkdocumentation.png?raw=true" alt="Use case" style="zoom: 50%;" />
 
-This scorecard shown here summarizes the example game above. Heather wins because she was first to reach 100 points.  A scorecard shows the cumulative points across all of a players turns rolling the dice.
+The scorecard shown here summarizes the example game above. Heather wins because she was first to reach 100 points.  The scorecard shows each player's cumulative points across all of their turns rolling the dice.
 
 <img src="https://github.com/heathermortensen/SkunkGame/blob/master/images/Scorecard.png?raw=true" alt="Skunk Scorecard" style="zoom: 200%;" />
 
@@ -36,7 +36,7 @@ He rolls only once and gets 9 points. Garth's point total means that he is winni
 
 ### Use Case
 
-Skunk game with 3 players where player 3 wins by having the most points at the end of turn 5.
+Skunk game with 3 players, where player #3 wins because he has the most points at the end of round 5.
 
 ![image-20200725115334810](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/use_case_1.png)
 
@@ -55,6 +55,12 @@ While we might visualize the data as a matrix, the actual implementation uses 2 
 ![Data model](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/use_case_3.png)
 
 
+
+### UML of the backend
+
+This is the class diagram for game functionality, prior to adding MVC.
+
+![Class Diagram](https://raw.githubusercontent.com/heathermortensen/SkunkGame/master/images/classDiagramForSkunkGame.png)
 
 
 
